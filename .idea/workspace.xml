@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ecac6a-d03f-4260-9107-07ffa5ba4a50" name="Default" comment="change tab-gongyi">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-gongyi.html" afterPath="$PROJECT_DIR$/www/templates/tab-gongyi.html" />
+    <list default="true" id="c0ecac6a-d03f-4260-9107-07ffa5ba4a50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app02.iws" />
@@ -304,6 +303,13 @@
       <option name="number" value="Default" />
       <updated>1442720482208</updated>
     </task>
+    <task id="LOCAL-00001" summary="change tab-gongyi">
+      <created>1442937388605</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1442937388605</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
