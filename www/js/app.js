@@ -90,11 +90,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('tab.gongyi2', {
-        url: '/gongyi2',
+      .state('tab.banzhuang', {
+        url: '/gongyi/banzhuang',
         views: {
           'tab-gongyi': {
-            templateUrl: 'templates/old/chat-detail.html',
+            templateUrl: 'templates/gongyi/banzhuang.html',
             controller:'PeizhiCtrl'
           }
         }
