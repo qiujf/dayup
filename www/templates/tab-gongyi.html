@@ -1,20 +1,28 @@
 <ion-view view-title="工艺制定" class="">
-  <ion-content>
-    <div class="list">
+    <ion-content>
+        <div class="list">
 
-      <a class="item item-icon-right" href="#">
-        板状工件流程
-        <i class="icon ion-android-add"></i>
-      </a> <a class="item item-icon-right" href="#">
-      小口径管工件流程
-      <i class="icon ion-android-add"></i>
-    </a> <a class="item item-icon-right" href="#">
-      中口径管工件流程
-      <i class="icon ion-android-add"></i>
-    </a>
-      <a class="button icon icon-right ion-chevron-right" href="#/tab/gongyi/banzhuang">Scientific Facts</a>
+            <a class="item item-button-right" href="#/tab/gongyi/banzhuang">
 
-    </div>
+            板状工件流程
+            <button class="button button-positive">
+                新增
+            </button>
+            </a>
+            <a class="item item-button-right" >
+                小口径管工件流程
+                <button class="button button-positive" ng-click="showUnderConstructionAlert()">
+                    新增
+                </button>
+            </a> <a class="item item-button-right" ng-click="showUnderConstructionAlert()">
+            中口径管工件流程
+            <button class="button button-positive">
+                新增
+            </button>
+        </a>
 
-  </ion-content>
+
+        </div>
+
+    </ion-content>
 </ion-view>

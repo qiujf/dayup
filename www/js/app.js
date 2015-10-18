@@ -95,7 +95,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         views: {
           'tab-gongyi': {
             templateUrl: 'templates/gongyi/banzhuang.html',
-            controller:'PeizhiCtrl'
+            controller:'BanzhuangCtrl'
           }
         }
       })
@@ -140,3 +140,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $urlRouterProvider.otherwise('/tab/gongyi');
 
   });
+
+
