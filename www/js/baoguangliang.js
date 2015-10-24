@@ -3,7 +3,17 @@
  */
 angular.module('starter.controllers')
 .controller('BaoguangCtrl', function ($scope) {
-  console.log('BaoguangCtrl');
+
+
+ $scope.baoGuang ={
+   shiJiJiaoJu:0,
+   touZhaoHouDu:0,
+   fangSheYuan:"",
+   jiaoPianPinPai:"",
+   jiaoPianXingHao:"",
+   jiapPianXiuZhengXiShu:0,
+   paoGuangLiang:0
+ }
   $scope.changeSource = function (sourceInput) {
 
 
