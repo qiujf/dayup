@@ -4,7 +4,9 @@
 
 angular.module('starter.controllers')
 
-.controller('BanzhuangCtrl', function ($scope, $ionicModal) {
+.controller('BanzhuangCtrl', function ($scope, $ionicModal,shareService) {
+
+
   //透照方式Option
   $scope.banZhuangOpt = {
     touZhaoFangShi: [{selected: true, name: "单壁单影", value: "DBDY"}],
@@ -16,7 +18,7 @@ angular.module('starter.controllers')
 
   };
 
-  //曝光配置
+  //板状工艺
   $scope.banZhuang = {
     gongChengHouDu: 0,
     touZhaoFangShi: "",
@@ -27,13 +29,21 @@ angular.module('starter.controllers')
     yiCiTouZhaoChangDu: 0,
     baoGuangLiang: 0,
     yuanQiangDu: 0,
-    baoGuangShiJian: 0,
+    baoGuangShiJian: 0
   }
 
-  $scope.formInit = function(){
-    $scope.banZhuang.touZhaoFangShi = "DBDY";
-    $scope.banZhuang.touZhaoFangShi = "A";
-  }
+    $scope.baoGuangLiang = {
+      shiJiJiaoJu:0,
+      touZhaoHouDu:0,
+      fangSheYuan:"",
+      jiaoJuanPinPai:"",
+      jiaoJuanXingHao:"",
+      jiaoPianXiuZhengXiShu:0,
+      baoGuangLiang:0
+    }
+
+
+
 
   $scope.setFormValue = function () {
     $scope.banZhuang.touZhaoHouDu = $scope.banZhuang.gongChengHouDu;
@@ -62,7 +72,7 @@ angular.module('starter.controllers')
       + "|" + $scope.banZhuang.yuanQiangDu + "|" + $scope.banZhuang.baoGuangShiJian);
   }
   $scope.setBanZhuang = function () {
-    $scope.banZhuang.gongChengHouDu = 1;
+    $scope.banZhuang.gongChengHouDu =  0;
     $scope.banZhuang.touZhaoFangShi = "DBDY";
     $scope.banZhuang.touZhaoDengJi = "A";
     $scope.banZhuang.touZhaoHouDu = 12;
@@ -82,9 +92,20 @@ angular.module('starter.controllers')
     $scope.modal = modal;
   });
   $scope.openModal = function () {
+
+    $scope.baoGuangLiang.shiJiJiaoJu = $scope.banZhuang.shiJiJiaoJu;
+    $scope.baoGuangLiang.touZhaoHouDu = $scope.banZhuang.touZhaoHouDu;
+
+
     $scope.modal.show();
   };
-  $scope.closeModal = function () {
+    $scope.closeModal = function () {
+
+      $scope.modal.hide();
+    };
+  $scope.saveAndCloseModal = function () {
+
+    $scope.banZhuang.baoGuangLiang = 9999;
     $scope.modal.hide();
   };
   //Cleanup the modal when we're done with it!
