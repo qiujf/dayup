@@ -33,7 +33,7 @@
                     胶片品牌
                 </div>
 
-              <select ng-model="baoGuangLiang.jiaoPianPinPai" ng-init="baoGuangLiang.jiaoPianPinPai='FS'">
+              <select ng-model="baoGuangLiang.jiaoJuanPinPai" ng-init="baoGuangLiang.jiaoJuanPinPai='FS'" ng-change="changeJiaoPianPinPai()">
                 <option ng-repeat="jiaoPian in baoGuangOpt.jiaoPian" value="{{jiaoPian.value}}">{{jiaoPian.name}}</option>
               </select>
 
@@ -42,10 +42,8 @@
                 <div class="input-label">
                     胶片型号
                 </div>
-                <select>
-                    <option>A</option>
-                    <option selected>AB</option>
-                    <option>B</option>
+                <select ng-model="baoGuangLiang.jiaoPianXingHao" ng-init="">
+                 <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.value}}">{{jiaoPianXingHao.name}}</option>
                 </select>
             </a>
 
