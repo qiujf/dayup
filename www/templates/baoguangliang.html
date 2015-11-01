@@ -42,14 +42,14 @@
                 <div class="input-label">
                     胶片型号
                 </div>
-                <select ng-model="baoGuangLiang.jiaoPianXingHao" ng-init="">
-                 <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.value}}">{{jiaoPianXingHao.name}}</option>
+                <select ng-model="baoGuangLiang.jiaoPianXiuZhengXiShu" ng-init="">
+                 <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.xzxs}}">{{jiaoPianXingHao.name}}</option>
                 </select>
             </a>
 
             <a class="item item-input">
                 <span class="input-label">照片修正系数</span>
-                <input  ng-model="baoGuangLiang.jiaoPianXiuZhengXiShu" type="number" class="text-right" ng-readonly="true" value="0"/>
+                {{baoGuangLiang.jiaoPianXiuZhengXiShu}}
             </a>
 
           <a class="item item-input">

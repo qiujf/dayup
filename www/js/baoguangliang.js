@@ -29,32 +29,32 @@ angular.module('starter.controllers')
         selected:[],
         FS:[
 
-          {selected: true, name: "富士25", value: "FS25"},
-          {selected: true, name: "富士50", value: "FS50"},
-          {selected: true, name: "富士80", value: "FS80"},
-          {selected: true, name: "富士100", value: "FS100"},
-          {selected: true, name: "富士150", value: "FS150"}
+          {selected: true, name: "富士25", value: "FS25",xzxs:1.0},
+          {selected: true, name: "富士50", value: "FS50",xzxs:1.0},
+          {selected: true, name: "富士80", value: "FS80",xzxs:4.0},
+          {selected: true, name: "富士100", value: "FS100",xzxs:2.0},
+          {selected: true, name: "富士150", value: "FS150",xzxs:1.0}
         ],
         KD:[
-          {selected: true, name: "DR50", value: "DR50"},
-          {selected: true, name: "M100", value: "M100"},
-          {selected: true, name: "M125", value: "M125"},
-          {selected: true, name: "T200", value: "T200"},
-          {selected: true, name: "AA400", value: "AA400"},
-          {selected: true, name: "HS800", value: "HS800"}
+          {selected: true, name: "DR50", value: "DR50",xzxs:1.0},
+          {selected: true, name: "M100", value: "M100",xzxs:1.0},
+          {selected: true, name: "MX125", value: "MX125",xzxs:4.0},
+          {selected: true, name: "T200", value: "T200",xzxs:2.5},
+          {selected: true, name: "AA400", value: "AA400",xzxs:2.0},
+          {selected: true, name: "HS800", value: "HS800",xzxs:1.0}
         ],
         AGFA:[
-          {selected: true, name: "AGFA D2", value: "AGFA D2"},
-          {selected: true, name: "AGFA D3", value: "AGFA D3"},
-          {selected: true, name: "AGFA C4", value: "AGFA C4"},
-          {selected: true, name: "AGFA D4", value: "AGFA D4"},
-          {selected: true, name: "AGFA D5", value: "AGFA D5"},
-          {selected: true, name: "AGFA C7", value: "AGFA C7"},
-          {selected: true, name: "AGFA D7", value: "AGFA D7"},
-          {selected: true, name: "AGFA D8", value: "AGFA D8"}
+          {selected: true, name: "AGFA D2", value: "AGFA D2", xzxs:1.0},
+          {selected: true, name: "AGFA D3", value: "AGFA D3",xzxs:1.0},
+          {selected: true, name: "AGFA C4", value: "AGFA C4",xzxs:4.0},
+          {selected: true, name: "AGFA D4", value: "AGFA D4",xzxs:4.0},
+          {selected: true, name: "AGFA D5", value: "AGFA D5",xzxs:2.5},
+          {selected: true, name: "AGFA C7", value: "AGFA C7",xzxs:2.0},
+          {selected: true, name: "AGFA D7", value: "AGFA D7",xzxs:2.0},
+          {selected: true, name: "AGFA D8", value: "AGFA D8",xzxs:1.0}
         ]
       }
-
+,
 
     }
     $scope.saveBaoGuangLiang = function(){
@@ -73,12 +73,6 @@ angular.module('starter.controllers')
   $scope.changeSource = function () {
 
 
-    if($scope.baoGuangLiang.fangSheYuan=="Se75"){
-      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = 4;
-    }else{
-
-      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = 3;
-    }
   };
 
 })
