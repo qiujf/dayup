@@ -16,7 +16,7 @@
         <div class="list">
           <a class="item item-input">
             <span class="input-label">实际焦距</span>
-            <input type="number" class="text-right" ng-readonly="true" ng-model="baoGuangLiang.shiJiJiaoJu" value="0"/>
+            <input type="number" class="text-right" ng-readonly="true" ng-model="baoGuangLiang.shiJiJiaoJu"  value ="0"/>
           </a>
           <a class="item item-input">
             <span class="input-label">透照厚度</span>
@@ -24,7 +24,7 @@
           </a>
             <a class="item item-input item-select">
                 <span class="input-label">放射源</span>
-              <select ng-model="baoGuangLiang.fangSheYuan" ng-init="baoGuangLiang.fangSheYuan='Se75'" ng-blur="changeSource()">
+              <select ng-model="baoGuangLiang.fangSheYuan" ng-init="baoGuangLiang.fangSheYuan=''" ng-blur="onChangeSource()">
                 <option ng-repeat="fangSheYuan in baoGuangOpt.fangSheYuan" value="{{fangSheYuan.value}}">{{fangSheYuan.name}}</option>
               </select>
             </a>
@@ -33,7 +33,7 @@
                     胶片品牌
                 </div>
 
-              <select ng-model="baoGuangLiang.jiaoJuanPinPai" ng-init="baoGuangLiang.jiaoJuanPinPai='FS'" ng-change="changeJiaoPianPinPai()">
+              <select ng-model="baoGuangLiang.jiaoJuanPinPai" ng-init="baoGuangLiang.jiaoJuanPinPai=''" ng-change="onChangeJiaoPianPinPai()">
                 <option ng-repeat="jiaoPian in baoGuangOpt.jiaoPian" value="{{jiaoPian.value}}">{{jiaoPian.name}}</option>
               </select>
 
@@ -42,19 +42,19 @@
                 <div class="input-label">
                     胶片型号
                 </div>
-                <select ng-model="baoGuangLiang.jiaoPianXiuZhengXiShu" ng-init="">
-                 <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.xzxs}}">{{jiaoPianXingHao.name}}</option>
+                <select ng-model="baoGuangLiang.jiaoPianXiuZhengXiShuDefault" ng-init="" ng-change="onJiaoPianXingHaoChange()">
+                 <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.xzxs}}" >{{jiaoPianXingHao.name}}</option>
                 </select>
             </a>
 
             <a class="item item-input">
                 <span class="input-label">照片修正系数</span>
-                {{baoGuangLiang.jiaoPianXiuZhengXiShu}}
+              <input type="number" class="text-right"  ng-model="baoGuangLiang.jiaoPianXiuZhengXiShu"  ng-blur="onJiaoPianXiuZhengXiShuChange()"/>
             </a>
 
           <a class="item item-input">
             <span class="input-label">曝光量</span>
-            <input type="number" class="text-right" ng-readonly="true" value="0"/>
+            <input ng-model="baoGuangLiang.baoGuangLiang" type="number" class="text-right" ng-readonly="true" value="0"/>
           </a>
          </div>
 

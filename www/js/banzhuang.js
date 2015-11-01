@@ -21,11 +21,14 @@ angular.module('starter.controllers')
   //板状工艺
   $scope.banZhuang = {
     gongChengHouDu: 0,
-    touZhaoFangShi: "",
-    touZhaoDengJi: "",
+    touZhaoFangShi: "DBDY",
+    touZhaoDengJi: "A",
     touZhaoHouDu: 0,
+    jiaoPianJuLi:0,
+    youXiaoJiaoDianChiCun:0,
     zuiXiaoJiaoJu: 0,
     shiJiJiaoJu: 0,
+    k:1.03,
     yiCiTouZhaoChangDu: 0,
     baoGuangLiang: 0,
     yuanQiangDu: 0,
@@ -38,33 +41,71 @@ angular.module('starter.controllers')
       fangSheYuan:"",
       jiaoJuanPinPai:"",
       jiaoJuanXingHao:"",
+      jiaoPianXiuZhengXiShuDefault:0,
       jiaoPianXiuZhengXiShu:0,
       baoGuangLiang:0
     }
 
 
+    function calcZuiXiaoJiaoJu() {
+      if ($scope.banZhuang.touZhaoDengJi == "A") {
+        $scope.banZhuang.zuiXiaoJiaoJu = $scope.banZhuang.jiaoPianJuLi + 7.5 * $scope.banZhuang.youXiaoJiaoDianChiCun * Math.pow($scope.banZhuang.jiaoPianJuLi, 2 / 3);
+      } else if ($scope.banZhuang.touZhaoDengJi == "AB") {
+        $scope.banZhuang.zuiXiaoJiaoJu = $scope.banZhuang.jiaoPianJuLi + 10 * $scope.banZhuang.youXiaoJiaoDianChiCun * Math.pow($scope.banZhuang.jiaoPianJuLi, 2 / 3);
 
+      } else if ($scope.banZhuang.touZhaoDengJi == "B") {
+        $scope.banZhuang.zuiXiaoJiaoJu = $scope.banZhuang.jiaoPianJuLi + 15 * $scope.banZhuang.youXiaoJiaoDianChiCun * Math.pow($scope.banZhuang.jiaoPianJuLi, 2 / 3);
+      }
 
-  $scope.setFormValue = function () {
-    $scope.banZhuang.touZhaoHouDu = $scope.banZhuang.gongChengHouDu;
-    $scope.banZhuang.zuiXiaoJiaoJu = $scope.banZhuang.gongChengHouDu + 2;
-    if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
-      $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      $scope.banZhuang.zuiXiaoJiaoJu = Math.round( $scope.banZhuang.zuiXiaoJiaoJu*100)/100;
     }
-    $scope.calcYiCiTouZhaoChangDu();
+
+    function calcValueOfK() {
+      if ($scope.banZhuang.touZhaoDengJi == "A")    {
+        $scope.banZhuang.k = 1.03;
+      } else if ($scope.banZhuang.touZhaoDengJi == "AB") {
+        $scope.banZhuang.k = 1.03;
+
+      } else if ($scope.banZhuang.touZhaoDengJi == "B") {
+        $scope.banZhuang.k = 1.01;
+      }
+    }
+
+    function calcYiCiTouZhaoChangDu() {
+      $scope.banZhuang.yiCiTouZhaoChangDu = Math.round(2*$scope.banZhuang.shiJiJiaoJu/Math.tan(Math.asin(1/$scope.banZhuang.k))*100)/100;
+    }
+
+    function calcTouZhaoHouDu() {
+      $scope.banZhuang.touZhaoHouDu = $scope.banZhuang.gongChengHouDu;
+    }
+
+    function calcJiaoPianJuLi() {
+      $scope.banZhuang.jiaoPianJuLi = $scope.banZhuang.gongChengHouDu + 2;
+    }
+
+    $scope.onFormValueChange = function () {
+      calcTouZhaoHouDu();
+      calcJiaoPianJuLi();
+      calcZuiXiaoJiaoJu();
+      calcValueOfK();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      }
+      calcYiCiTouZhaoChangDu();
   }
+
+
+
   $scope.onShiJiJiaoJuChange = function () {
 
     if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
       alert("实际焦距不能小于最小焦距");
       $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
     }
-    $scope.calcYiCiTouZhaoChangDu();
+    calcYiCiTouZhaoChangDu();
   }
 
-  $scope.calcYiCiTouZhaoChangDu=function(){
-    $scope.banZhuang.yiCiTouZhaoChangDu = 2*$scope.banZhuang.shiJiJiaoJu/Math.tan(Math.asin(1/1.03));
-  }
+
 
   $scope.getBanZhuang = function () {
     alert($scope.banZhuang.gongChengHouDu + "|" + $scope.banZhuang.touZhaoFangShi + "|" + $scope.banZhuang.touZhaoDengJi + "|" + $scope.banZhuang.touZhaoHouDu
@@ -96,7 +137,6 @@ angular.module('starter.controllers')
     $scope.baoGuangLiang.shiJiJiaoJu = $scope.banZhuang.shiJiJiaoJu;
     $scope.baoGuangLiang.touZhaoHouDu = $scope.banZhuang.touZhaoHouDu;
 
-
     $scope.modal.show();
   };
     $scope.closeModal = function () {
@@ -105,7 +145,7 @@ angular.module('starter.controllers')
     };
   $scope.saveAndCloseModal = function () {
 
-    $scope.banZhuang.baoGuangLiang = 9999;
+    $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
     $scope.modal.hide();
   };
   //Cleanup the modal when we're done with it!
