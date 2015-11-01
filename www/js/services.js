@@ -47,4 +47,26 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+
+})
+  .factory("shareService", function() {
+
+    var banZhuangProps={
+      shiJiJiaoJu:0,
+      touZhaoHouDu:0,
+      fangSheYuan:"",
+      jiaoJuanPinPai:"",
+      jiaoJuanXingHao:"",
+      jiaoPianXiuZhengXiShu:0,
+      baoGuangLiang:0
+    }
+
+    return {
+
+      BanZhuang: function() {
+        return banZhuangProps;
+      }
+    };
+
+  });
+;
