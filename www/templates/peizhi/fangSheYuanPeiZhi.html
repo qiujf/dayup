@@ -17,10 +17,13 @@
   <ion-content >
     <ion-list show-delete="data.showDelete">
 
-      <ion-item ng-repeat="item in fangShenYuanList"
+      <ion-item ng-repeat="item in fangSheYuanList"
                 item="item"
                 class="item-remove-animate">
-         编号{{ item.id }}&nbsp&nbsp类型{{ item.type }}&nbsp&nbsp日期{{ item.date |  date:'yyyy-MM-dd'}}
+         <p>编号{{ item.id }}</p>
+        <p>类型{{ item.type }}</p>
+        <p>起始居里日期{{ item.date}}</p>
+        <p>起始居里强度{{ item.power}}</p>
         <ion-delete-button class="ion-minus-circled"
                            ng-click="onItemDelete(item)">
         </ion-delete-button>

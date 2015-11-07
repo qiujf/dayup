@@ -66,13 +66,19 @@
                   <input type="number" class="text-right" placeholder="0" ng-readonly = "true" ng-model="banZhuang.baoGuangLiang"/>
                 </div>
             </a>
+          <a class="item item-input">
+            <span class="input-label">放射源</span>
+            <select ng-model="banZhuang.fangSheYuan" ng-init="" ng-change="onFangSheYuanChange()">
+              <option ng-repeat="fangsheYuan in banZhuang.fangSheYuanList" value="{{$index}}">{{fangsheYuan.type}}@{{fangsheYuan.date}}</option>
+            </select>
+          </a>
             <a class="item item-input">
                 <span class="input-label">源强度</span>
                 <input type="number" class="text-right" placeholder="0" ng-model="banZhuang.yuanQiangDu"/>
             </a>
             <a class="item item-input">
                 曝光时间
-                <span type="input-label" ng-model="banZhuang.baoGuangShiJian"></span>
+                <input type="number" ng-readonly="true" ng-model="banZhuang.baoGuangShiJian"> </input>
             </a>
         </div>
 

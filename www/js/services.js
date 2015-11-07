@@ -49,7 +49,7 @@ angular.module('starter.services', [])
   };
 
 })
-  .factory("shareService", function() {
+  .service("shareService", function() {
 
     var banZhuangProps={
       shiJiJiaoJu:0,
@@ -61,39 +61,25 @@ angular.module('starter.services', [])
       baoGuangLiang:0
     }
 
-    return {
+    var fangSheYuanList;
 
-      BanZhuang: function() {
-        return banZhuangProps;
+   var fangSheYuanPeiZhiLiteral= window.localStorage.getItem('fangSheYuanPeiZhi');
+
+    if(fangSheYuanPeiZhiLiteral!=null) {
+      fangSheYuanList = angular.fromJson(fangSheYuanPeiZhiLiteral);
+    }else{
+      fangSheYuanList = [];
+    }
+
+
+    this.getFangSheYuan = function() {
+        return fangSheYuanList;
       }
-    };
+      this.setFangSheYuan = function(fangSheYuan) {
+        fangSheYuanList =fangSheYuan;
+      }
+
 
   })
-  .factory('Projects', function() {
-    return {
-      all: function() {
-        var projectString = window.localStorage['projects'];
-        if(projectString) {
-          return angular.fromJson(projectString);
-        }
-        return [];
-      },
-      save: function(projects) {
-        window.localStorage['projects'] = angular.toJson(projects);
-      },
-      newProject: function(projectTitle) {
-        // Add a new project
-        return {
-          title: projectTitle,
-          tasks: []
-        };
-      },
-      getLastActiveIndex: function() {
-        return parseInt(window.localStorage['lastActiveProject']) || 0;
-      },
-      setLastActiveIndex: function(index) {
-        window.localStorage['lastActiveProject'] = index;
-      }
-    }
-  });
+
 ;
