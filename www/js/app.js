@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -90,6 +90,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
+
+
+      .state('tab.fangsheyuanpeizhi', {
+        url: '/peizhi/fangsheyuanpeizhi',
+        views: {
+          'tab-peizhi': {
+            templateUrl: 'templates/peizhi/fangsheyuanpeizhi.html',
+            controller:'FangSheYuanCtrl'
+          }
+        }
+      })
+
       .state('tab.banzhuang', {
         url: '/gongyi/banzhuang',
         views: {
@@ -139,6 +151,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/gongyi');
 
+    })
+    .config(function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position("bottom"); //Places them at the bottom for all OS
+    $ionicConfigProvider.tabs.style("standard"); //Makes them all look the same across all OS
   });
 
 

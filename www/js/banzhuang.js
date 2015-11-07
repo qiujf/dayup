@@ -4,7 +4,7 @@
 
 angular.module('starter.controllers')
 
-.controller('BanzhuangCtrl', function ($scope, $ionicModal,shareService) {
+.controller('BanzhuangCtrl', function ($scope, $ionicModal) {
 
 
   //透照方式Option
@@ -108,9 +108,10 @@ angular.module('starter.controllers')
 
 
   $scope.getBanZhuang = function () {
-    alert($scope.banZhuang.gongChengHouDu + "|" + $scope.banZhuang.touZhaoFangShi + "|" + $scope.banZhuang.touZhaoDengJi + "|" + $scope.banZhuang.touZhaoHouDu
+/*    alert($scope.banZhuang.gongChengHouDu + "|" + $scope.banZhuang.touZhaoFangShi + "|" + $scope.banZhuang.touZhaoDengJi + "|" + $scope.banZhuang.touZhaoHouDu
       + "|" + $scope.banZhuang.zuiXiaoJiaoJu + "|" + $scope.banZhuang.shiJiJiaoJu + "|" + $scope.banZhuang.yiCiTouZhaoChangDu + "|" + $scope.banZhuang.baoGuangLiang
-      + "|" + $scope.banZhuang.yuanQiangDu + "|" + $scope.banZhuang.baoGuangShiJian);
+      + "|" + $scope.banZhuang.yuanQiangDu + "|" + $scope.banZhuang.baoGuangShiJian);*/
+    alert(angular.toJson($scope.banZhuang));
   }
   $scope.setBanZhuang = function () {
     $scope.banZhuang.gongChengHouDu =  0;

@@ -1,0 +1,37 @@
+<ion-modal-view id="xinzengfangsheyuan">
+  <ion-header-bar class="bar-subheader bar-balanced">
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="closeModal()">取消</button>
+    </div>
+    <h1 class="title">新增放射源</h1>
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="saveAndCloseModal()">确定</button>
+    </div>
+
+
+  </ion-header-bar>
+
+
+  <ion-content ng-controller="XinZengFangSheYuanCtrl">
+    <div class="list">
+
+      <a class="item item-input item-select">
+        <span class="input-label">放射源</span>
+        <select ng-model="xinZheng.type" >
+          <option  value="Se75">Se75
+          </option>
+          <option  value="Ir192">Ir192
+        </option>
+        </select>
+      </a>
+      <a class="item item-input item-select">
+        <div class="input-label">
+          起始居里日期
+        </div>
+
+        <input type="date"ng-model="xinZheng.date"> </input>
+      </a>
+    </div>
+
+</ion-content>
+</ion-modal-view>
