@@ -1,0 +1,41 @@
+<ion-view view-title="放射源配置" ng-controller="FangSheYuanCtrl">
+
+
+
+    <ion-header-bar class="bar-subheader bar-balanced">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline"
+                ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      </div>
+      <h1 class="title"></h1>
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-plus-outline" ng-click="openModal()"
+                ></button>
+      </div>
+    </ion-header-bar>
+    <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
+  <ion-content >
+    <ion-list show-delete="data.showDelete">
+
+      <ion-item ng-repeat="item in fangShenYuanList"
+                item="item"
+                class="item-remove-animate">
+         编号{{ item.id }}&nbsp&nbsp类型{{ item.type }}&nbsp&nbsp日期{{ item.date |  date:'yyyy-MM-dd'}}
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="onItemDelete(item)">
+        </ion-delete-button>
+        <ion-option-button class="button-assertive"
+                           ng-click="edit(item)">
+          Edit
+        </ion-option-button>
+        <ion-option-button class="button-calm"
+                           ng-click="share(item)">
+          Share
+        </ion-option-button>
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>
