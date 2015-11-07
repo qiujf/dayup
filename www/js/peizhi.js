@@ -8,41 +8,15 @@ angular.module('starter.controllers')
 
 
     $scope.fangSheYuanSeq=0;
-    $scope.fangShenYuanList = [
-      {
-        id:1,
-        type:'Se75',
-        date:'2015-11-7'
-      },
-      {
-        id:2,
-        type:'Se75',
-        date:'2015-11-8'
-      },
-      {
-        id:3,
-        type:'Se75',
-        date:'2015-11-9'
-      },
-      {
-        id:4,
-        type:'Se75',
-        date:'2015-11-9'
-      },
-      {
-        id:5,
-        type:'Se75',
-        date:'2015-11-9'
-      },
-      {
-        id:6,
-        type:'Se75',
-        date:'2015-11-9'
-      }
 
-    ];
 
-    $scope.fangShenYuanList = angular.fromJson(window.localStorage.getItem('fangSheYuanPeiZhi'));
+    var fangSheYuanPeiZhiLiteral = window.localStorage.getItem('fangSheYuanPeiZhi');
+
+    if(fangSheYuanPeiZhiLiteral!=null) {
+      $scope.fangShenYuanList = angular.fromJson(fangSheYuanPeiZhiLiteral);
+    }else{
+      $scope.fangShenYuanList = [];
+    }
 
     $scope.xinZheng ={
       type:"",
