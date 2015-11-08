@@ -1,4 +1,4 @@
-<ion-view view-title="板状工件工艺">
+<ion-view view-title="小口径管工件工艺">
   <ion-content scroll="true" scrollbar-y="true">
 
     <div class="list">
@@ -7,20 +7,36 @@
         <button ng-click="setBanZhuang()">功能2</button>
       </a>
       <a class="item item-input">
-        <span class="input-label">公称厚度（MM)</span>
+        <span class="input-label">公称厚度(MM)</span>
         <input type="number" class="text-right" min="0" ng-blur="onGongChengHouDuChange()"
                ng-model="banZhuang.gongChengHouDu"/>
+      </a>
+      <a class="item item-input">
+        <span class="input-label">外径(MM)</span>
+        <input type="number" class="text-right" min="0" ng-blur="onWaiJingChange()"
+               ng-model="banZhuang.waijing"/>
+      </a>
+      <a class="item item-input">
+        <span class="input-label">焊缝宽度(MM)</span>
+        <input type="number" class="text-right" min="0" ng-blur="onHanFengChange()"
+               ng-model="banZhuang.hanFengHouDu"/>
       </a>
       <a class="item item-input item-select">
         <div class="input-label">
           透照方式
         </div>
-        <select ng-model="banZhuang.touZhaoFangShi" ng-init="banZhuang.touZhaoFangShi='DBDY'">
+        <select ng-model="banZhuang.touZhaoFangShi" ng-init="banZhuang.touZhaoFangShi='SBSY'">
           <option ng-repeat="touZhaoFangShi in banZhuangOpt.touZhaoFangShi" value="{{touZhaoFangShi.value}}">
             {{touZhaoFangShi.name}}
           </option>
         </select>
       </a>
+      <a class="item item-input ">
+      <div class="input-label">
+        透照方式
+      </div>
+        <input type="text" class="text-right" ng-readonly="true" ng-model="banZhuang.touZhaoFangShi_Sub"/>
+    </a>
       <a class="item item-input item-select">
         <div class="input-label">
           透照等级
@@ -31,6 +47,10 @@
             {{touZhaoDengJi.name}}
           </option>
         </select>
+      </a>
+      <a class="item item-input">
+        <span class="input-label">透照次数</span>
+        <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.touZhaoCiShu"/>
       </a>
       <a class="item item-input">
         <span class="input-label">透照厚度(MM)</span>
@@ -54,10 +74,6 @@
         <span class="input-label">实际焦距(MM)</span>
         <input type="number" class="text-right" min="0" ng-blur="onShiJiJiaoJuChange()"
                ng-model="banZhuang.shiJiJiaoJu"/>
-      </a>
-      <a class="item item-input">
-        <span class="input-label">一次透照长度</span>
-        <input type="number" class="text-right" placeholder="0" ng-model="banZhuang.yiCiTouZhaoChangDu"/>
       </a>
       <a class="item item-input item-select">
         <span class="input-label">放射源</span>

@@ -4,12 +4,12 @@
 
 angular.module('starter.controllers')
 
-  .controller('BanzhuangCtrl', function ($scope, $ionicModal, shareService) {
+  .controller('XiaoJinGuanCtrl', function ($scope, $ionicModal, shareService) {
 
 
     //透照方式Option
     $scope.banZhuangOpt = {
-      touZhaoFangShi: [{selected: true, name: "单壁单影", value: "DBDY"}],
+      touZhaoFangShi: [{selected: true, name: "双壁双影", value: "SBSY"}],
       touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
         selected: false,
         name: "AB",
@@ -20,19 +20,23 @@ angular.module('starter.controllers')
 
     //板状工艺
     $scope.banZhuang = {
+      waijing: 0,
       gongChengHouDu: 0,
-      touZhaoFangShi: "DBDY",
+      hanFengHouDu: 0,
+      touZhaoFangShi: "SBSY",
+      touZhaoFangShi_Sub: "",
       touZhaoDengJi: "A",
       touZhaoHouDu: 0,
       jiaoPianJuLi: 0,
       youXiaoJiaoDianChiCun: 0,
       zuiXiaoJiaoJu: 0,
       shiJiJiaoJu: 0,
+      touZhaoCiShu: 0,
       k: 1.03,
       yiCiTouZhaoChangDu: 0,
       baoGuangLiang: 0,
       fangSheYuanList: [],
-      fangSheYuan:0,
+      fangSheYuan: 0,
       yuanQiangDu: 0,
       baoGuangShiJian: 0
     }
@@ -61,7 +65,7 @@ angular.module('starter.controllers')
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       }
-      $scope.banZhuang.baoGuangLiang=$scope.baoGuangLiang.baoGuangLiang;
+      $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
     }
 
     function calcZuiXiaoJiaoJu() {
@@ -93,11 +97,32 @@ angular.module('starter.controllers')
     }
 
     function calcTouZhaoHouDu() {
-      $scope.banZhuang.touZhaoHouDu = $scope.banZhuang.gongChengHouDu;
+      $scope.banZhuang.touZhaoHouDu = $scope.banZhuang.gongChengHouDu * 2;
     }
 
     function calcJiaoPianJuLi() {
-      $scope.banZhuang.jiaoPianJuLi = $scope.banZhuang.gongChengHouDu + 2;
+      $scope.banZhuang.jiaoPianJuLi = $scope.banZhuang.waijing + 2;
+    }
+
+    function calcTouZhaoFangShi_Sub() {
+      if (($scope.banZhuang.gongChengHouDu <= 8) && ($scope.banZhuang.hanFengHouDu <= $scope.banZhuang.waijing / 4)) {
+        $scope.banZhuang.touZhaoFangShi_Sub = "倾斜";
+      } else {
+        $scope.banZhuang.touZhaoFangShi_Sub = "垂直";
+      }
+    }
+
+    function calcTouZhaoCiShu() {
+      if ($scope.banZhuang.touZhaoFangShi_Sub == "倾斜") {
+        if ($scope.banZhuang.gongChengHouDu / $scope.banZhuang.waijing <= 0.12) {
+          $scope.banZhuang.touZhaoCiShu = 2;
+        } else {
+          $scope.banZhuang.touZhaoCiShu = 3;
+
+        }
+      } else {
+        $scope.banZhuang.touZhaoCiShu = 3;
+      }
     }
 
     function setFangSheYuanOptions() {
@@ -134,8 +159,9 @@ angular.module('starter.controllers')
         }
 
 
-      $scope.banZhuang.fangSheYuan=-1;
-      $scope.banZhuang.yuanQiangDu=0;
+
+      $scope.banZhuang.fangSheYuan = -1;
+      $scope.banZhuang.yuanQiangDu = 0;
       $scope.banZhuang.baoGuangShiJian = 0;
     }
 
@@ -143,34 +169,34 @@ angular.module('starter.controllers')
       var fangSheYuan = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan];
       var dateLiteral = fangSheYuan.date;
       var date = new Date();
-      date.setFullYear(Number(dateLiteral.substr(0,4)));
-      date.setMonth(Number(dateLiteral.substr(4,2))-1);
-      date.setDate(Number(dateLiteral.substr(6,2)));
+      date.setFullYear(Number(dateLiteral.substr(0, 4)));
+      date.setMonth(Number(dateLiteral.substr(4, 2)) - 1);
+      date.setDate(Number(dateLiteral.substr(6, 2)));
       date.setHours(0);
       date.setMinutes(0);
       date.setSeconds(0);
       date.setMilliseconds(0);
 
-      var today =new Date();
+      var today = new Date();
       today.setHours(0);
       today.setMinutes(0);
       today.setSeconds(0);
       today.setMilliseconds(0);
 
-      var days = (today.getTime()-date.getTime())/86400000;
+      var days = (today.getTime() - date.getTime()) / 86400000;
       var curPower = 0;
-      if(fangSheYuan.type=="Se75"){
-        curPower = fangSheYuan.power*Math.pow(0.5,days/120);
-      }else if (fangSheYuan.type=="Ir192"){
-        curPower = fangSheYuan.power*Math.pow(0.5,days/74);
+      if (fangSheYuan.type == "Se75") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
+      } else if (fangSheYuan.type == "Ir192") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
       }
 
       $scope.banZhuang.yuanQiangDu = curPower;
     }
 
-    function calcBaoGuangShiJian(){
-      $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang/ $scope.banZhuang.yuanQiangDu;
-      if( $scope.banZhuang.baoGuangShiJian<1){
+    function calcBaoGuangShiJian() {
+      $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
+      if ($scope.banZhuang.baoGuangShiJian < 1) {
         alert("曝光时间小于一分钟，请增大实际焦距");
       }
     }
@@ -178,8 +204,24 @@ angular.module('starter.controllers')
     /**
      * UI functions
      */
-    $scope.onGongChengHouDuChange = function(){
+    $scope.onGongChengHouDuChange = function () {
       calcTouZhaoHouDu();
+      calcTouZhaoFangShi_Sub();
+      calcTouZhaoCiShu();
+      calcJiaoPianJuLi();
+      calcValueOfK();
+      calcZuiXiaoJiaoJu();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      }
+      calcYiCiTouZhaoChangDu();
+      setFangSheYuanOptions();
+      calcBaoGuangLiang();
+      calcBaoGuangShiJian();
+    }
+    $scope.onWaiJingChange = function(){
+      calcTouZhaoFangShi_Sub();
+      calcTouZhaoCiShu();
       calcJiaoPianJuLi();
       calcValueOfK();
       calcZuiXiaoJiaoJu();
@@ -192,7 +234,10 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onTouZhaoDengjiChange = function (){
+    $scope.onHanFengChange = function(){
+      calcTouZhaoFangShi_Sub();
+      calcTouZhaoCiShu();
+      calcJiaoPianJuLi();
       calcValueOfK();
       calcZuiXiaoJiaoJu();
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
@@ -204,7 +249,19 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onYouXiaoJiaoDianChiCun=function(){
+    $scope.onTouZhaoDengjiChange = function () {
+      calcValueOfK();
+      calcZuiXiaoJiaoJu();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      }
+      calcYiCiTouZhaoChangDu();
+      setFangSheYuanOptions();
+      calcBaoGuangLiang();
+      calcBaoGuangShiJian();
+    }
+
+    $scope.onYouXiaoJiaoDianChiCun = function () {
       calcZuiXiaoJiaoJu();
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
@@ -226,13 +283,13 @@ angular.module('starter.controllers')
     }
 
 
-    $scope.onFangSheYuanChange = function(){
+    $scope.onFangSheYuanChange = function () {
       calcYuanQiangDu();
       calcBaoGuangShiJian();
     }
 
 
-    $scope.onBaoGuangLiangChange = function(){
+    $scope.onBaoGuangLiangChange = function () {
       calcBaoGuangShiJian();
     }
 
@@ -300,5 +357,7 @@ angular.module('starter.controllers')
 
     }
 
-  });
+  }
+)
+;
 

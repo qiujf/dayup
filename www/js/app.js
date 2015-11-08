@@ -112,10 +112,31 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         }
       })
 
+      .state('tab.xiaojinguan', {
+        url: '/gongyi/xiaojinguan',
+        views: {
+          'tab-gongyi': {
+            templateUrl: 'templates/gongyi/xiaojinguan.html',
+            controller:'XiaoJinGuanCtrl'
+          }
+        }
+      })
 
-  /*
-    以下部分仅供参考，以后删除
-  */
+      .state('tab.zhongkoujing', {
+        url: '/gongyi/zhongkoujing',
+        views: {
+          'tab-gongyi': {
+            templateUrl: 'templates/gongyi/zhongkoujing.html',
+            controller:'ZhongKouJingCtrl'
+          }
+        }
+      })
+
+
+
+    /*
+      以下部分仅供参考，以后删除
+    */
 
     /*  .state('tab.chats', {
      url: '/chats',
