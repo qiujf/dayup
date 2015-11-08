@@ -37,6 +37,7 @@ angular.module('starter.controllers')
       baoGuangShiJian: 0
     }
 
+    //曝光量参数，用于曝光量Modal
     $scope.baoGuangLiang = {
       shiJiJiaoJu: 0,
       touZhaoHouDu: 0,
@@ -47,6 +48,10 @@ angular.module('starter.controllers')
       jiaoPianXiuZhengXiShu: 0,
       baoGuangLiang: 0
     }
+
+    /**
+     * Internal functions
+     */
 
     function calcBaoGuangLiang() {
       if ($scope.baoGuangLiang.fangSheYuan == "Se75") {
@@ -128,6 +133,10 @@ angular.module('starter.controllers')
           }
         }
       }
+
+      $scope.banZhuang.fangSheYuan=-1;
+      $scope.banZhuang.yuanQiangDu=0;
+      $scope.banZhuang.baoGuangShiJian = 0;
     }
 
     function calcYuanQiangDu() {
@@ -163,11 +172,14 @@ angular.module('starter.controllers')
       $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang/ $scope.banZhuang.yuanQiangDu;
     }
 
-    $scope.onFormValueChange = function () {
+    /**
+     * UI functions
+     */
+    $scope.onGongChengHouDuChange = function(){
       calcTouZhaoHouDu();
       calcJiaoPianJuLi();
-      calcZuiXiaoJiaoJu();
       calcValueOfK();
+      calcZuiXiaoJiaoJu();
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
@@ -177,8 +189,25 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onFangSheYuanChange = function(){
-      calcYuanQiangDu();
+    $scope.onTouZhaoDengjiChange = function (){
+      calcValueOfK();
+      calcZuiXiaoJiaoJu();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      }
+      calcYiCiTouZhaoChangDu();
+      calcBaoGuangLiang();
+      setFangSheYuanOptions();
+      calcBaoGuangShiJian();
+    }
+
+    $scope.onYouXiaoJiaoDianChiCun=function(){
+      calcZuiXiaoJiaoJu();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+      }
+      calcYiCiTouZhaoChangDu();
+      calcBaoGuangLiang();
       calcBaoGuangShiJian();
     }
 
@@ -192,6 +221,60 @@ angular.module('starter.controllers')
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     }
+
+
+    $scope.onFangSheYuanChange = function(){
+      calcYuanQiangDu();
+      calcBaoGuangShiJian();
+    }
+
+
+    $scope.onBaoGuangLiangChange = function(){
+      calcBaoGuangShiJian();
+    }
+
+
+    $ionicModal.fromTemplateUrl('templates/baoguangliang.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function () {
+
+      $scope.baoGuangLiang.shiJiJiaoJu = $scope.banZhuang.shiJiJiaoJu;
+      $scope.baoGuangLiang.touZhaoHouDu = $scope.banZhuang.touZhaoHouDu;
+      $scope.baoGuangLiang.fangSheYuan = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan].type;
+
+      $scope.modal.show();
+    };
+    $scope.closeModal = function () {
+
+      $scope.modal.hide();
+    };
+    $scope.saveAndCloseModal = function () {
+
+      $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+      $scope.modal.hide();
+      $scope.onBaoGuangLiangChange();
+    };
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function () {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function () {
+      // Execute action
+    });
+
+
+    /**
+     * 内部测试
+     */
 
 
     $scope.getBanZhuang = function () {
@@ -213,41 +296,6 @@ angular.module('starter.controllers')
       $scope.banZhuang.baoGuangShiJian = 18;
 
     }
-
-    $ionicModal.fromTemplateUrl('templates/baoguangliang.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.modal = modal;
-    });
-    $scope.openModal = function () {
-
-      $scope.baoGuangLiang.shiJiJiaoJu = $scope.banZhuang.shiJiJiaoJu;
-      $scope.baoGuangLiang.touZhaoHouDu = $scope.banZhuang.touZhaoHouDu;
-
-      $scope.modal.show();
-    };
-    $scope.closeModal = function () {
-
-      $scope.modal.hide();
-    };
-    $scope.saveAndCloseModal = function () {
-
-      $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
-      $scope.modal.hide();
-    };
-    //Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
-      $scope.modal.remove();
-    });
-    // Execute action on hide modal
-    $scope.$on('modal.hidden', function () {
-      // Execute action
-    });
-    // Execute action on remove modal
-    $scope.$on('modal.removed', function () {
-      // Execute action
-    });
 
   });
 

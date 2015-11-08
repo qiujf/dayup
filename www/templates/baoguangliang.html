@@ -1,16 +1,15 @@
 <ion-modal-view id="baoguangjisuanview" >
 
-      <ion-header-bar class="bar-subheader bar-energized">
+      <ion-header-bar class="bar-subheader bar-positive">
         <div class="buttons">
-          <button class="button button-energized" ng-click="closeModal()">取消</button>
+          <button class="button button-positive" ng-click="closeModal()">取消</button>
         </div>
         <h1 class="title">曝光计算</h1>
         <div class="buttons">
-          <button class="button button-balanced" ng-click="saveAndCloseModal()">确定</button>
+          <button class="button button-positive" ng-click="saveAndCloseModal()">确定</button>
         </div>
 
       </ion-header-bar>
-
 
       <ion-content ng-controller="BaoguangCtrl">
         <div class="list">
@@ -22,11 +21,10 @@
             <span class="input-label">透照厚度</span>
             <input type="number" class="text-right" ng-readonly="true" ng-model="baoGuangLiang.touZhaoHouDu" value="0"/>
           </a>
-            <a class="item item-input item-select">
+            <a class="item item-input">
                 <span class="input-label">放射源</span>
-              <select ng-model="baoGuangLiang.fangSheYuan" ng-init="baoGuangLiang.fangSheYuan=''" ng-blur="onChangeSource()">
-                <option ng-repeat="fangSheYuan in baoGuangOpt.fangSheYuan" value="{{fangSheYuan.value}}">{{fangSheYuan.name}}</option>
-              </select>
+
+              <input type="text" class="text-right" ng-readonly="true" ng-model="baoGuangLiang.fangSheYuan" value="0"/>
             </a>
             <a class="item item-input item-select">
                 <div class="input-label">
