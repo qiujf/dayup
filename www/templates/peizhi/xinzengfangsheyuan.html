@@ -4,6 +4,7 @@
       <button class="button button-balanced" ng-click="closeModal()">取消</button>
     </div>
     <h1 class="title">新增放射源</h1>
+
     <div class="buttons">
       <button class="button button-balanced" ng-click="saveAndCloseModal()">确定</button>
     </div>
@@ -17,28 +18,34 @@
 
       <a class="item item-input item-select">
         <span class="input-label">放射源</span>
-        <select ng-model="xinZheng.type" >
-          <option  value="Se75">Se75
+        <select ng-model="xinZheng.type">
+          <option value="Se75">Se75
           </option>
-          <option  value="Ir192">Ir192
-        </option>
+          <option value="Ir192">Ir192
+          </option>
+          <option value="Tm170">Tm170
+          </option>
+          <option value="Yb169">Yb169
+          </option>
+          <option value="Co60">Co60
+          </option>
+
         </select>
       </a>
       <a class="item item-input item-select">
         <div class="input-label">
           起始居里日期
         </div>
-        <input type="text"ng-model="xinZheng.date"> </input>
+        <input type="text" ng-model="xinZheng.date"> </input>
       </a>
       <a class="item item-input item-select">
         <div class="input-label">
           起始居里强度
         </div>
-        <input type="number"ng-model="xinZheng.power"> </input>
+        <input type="number" ng-model="xinZheng.power"> </input>
       </a>
-<a>
+      <a>
 
 
-
-</ion-content>
+  </ion-content>
 </ion-modal-view>

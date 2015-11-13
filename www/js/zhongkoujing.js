@@ -9,7 +9,7 @@ angular.module('starter.controllers')
 
     //透照方式Option
     $scope.banZhuangOpt = {
-      touZhaoFangShi: [{selected: true, name: "双壁双影", value: "SBSY"}],
+      touZhaoFangShi: [{selected: true, name: "双壁单影", value: "SBY"}],
       touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
         selected: false,
         name: "AB",
@@ -20,36 +20,36 @@ angular.module('starter.controllers')
 
     //板状工艺
     $scope.banZhuang = {
-      gongChengHouDu: 0,
-      waijing: 0,
+      gongChengHouDu: "",
+      waijing: "",
       touZhaoFangShi: "SBSY",
       touZhaoDengJi: "A",
-      touZhaoHouDu: 0,
-      jiaoPianJuLi: 0,
-      youXiaoJiaoDianChiCun: 0,
-      zuiXiaoJiaoJu: 0,
-      shiJiJiaoJu: 0,
-      touZhaoCiShu: 0,
+      touZhaoHouDu: "",
+      jiaoPianJuLi: "",
+      youXiaoJiaoDianChiCun: "",
+      zuiXiaoJiaoJu: "",
+      shiJiJiaoJu: "",
+      touZhaoCiShu: "",
       k: 1.2,
       yiCiTouZhaoChangDu: 0,
-      baoGuangLiang: 0,
+      baoGuangLiang: "",
       fangSheYuanList: [],
-      fangSheYuan: 0,
-      yuanQiangDu: 0,
-      touZhaoCiShu: 0,
-      baoGuangShiJian: 0
+      fangSheYuan: "",
+      yuanQiangDu: "",
+      touZhaoCiShu: "",
+      baoGuangShiJian: ""
     }
 
     //曝光量参数，用于曝光量Modal
     $scope.baoGuangLiang = {
-      shiJiJiaoJu: 0,
-      touZhaoHouDu: 0,
+      shiJiJiaoJu: "",
+      touZhaoHouDu: "",
       fangSheYuan: "",
       jiaoJuanPinPai: "",
       jiaoJuanXingHao: "",
-      jiaoPianXiuZhengXiShuDefault: 0,
-      jiaoPianXiuZhengXiShu: 0,
-      baoGuangLiang: 0
+      jiaoPianXiuZhengXiShuDefault: "",
+      jiaoPianXiuZhengXiShu: "",
+      baoGuangLiang: ""
     }
 
     /**
@@ -193,7 +193,7 @@ angular.module('starter.controllers')
 
     function calcBaoGuangShiJian() {
       $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
-      if ($scope.banZhuang.baoGuangShiJian < 1) {
+      if( $scope.banZhuang.baoGuangShiJian<1 && $scope.banZhuang.baoGuangShiJian>0){
         alert("曝光时间小于一分钟，请增大实际焦距");
       }
     }

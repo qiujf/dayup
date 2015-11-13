@@ -3,33 +3,59 @@
  */
 angular.module('starter.controllers')
 
-  .controller('FangSheYuanCtrl', function($scope,$ionicModal,shareService) {
-  //Data
-
-
-
-
+  .controller('FangSheYuanCtrl', function ($scope, $ionicModal, shareService) {
+    //Data
 
 
     var fangSheYuanSeq = window.localStorage.getItem('fangSheYuanSeq');
-    if(fangSheYuanSeq!=null){
+    if (fangSheYuanSeq != null) {
       $scope.fangSheYuanSeq = fangSheYuanSeq;
-    }else{
+    } else {
       $scope.fangSheYuanSeq = 1;
     }
 
     var fangSheYuanPeiZhiLiteral = window.localStorage.getItem('fangSheYuanPeiZhi');
 
-    if(fangSheYuanPeiZhiLiteral!=null) {
+    if (fangSheYuanPeiZhiLiteral != null) {
       $scope.fangSheYuanList = angular.fromJson(fangSheYuanPeiZhiLiteral);
-    }else{
+    } else {
       $scope.fangSheYuanList = [];
     }
+    for (var i = 0; i < $scope.fangSheYuanList.length; i++) {
+      var fangSheYuan = $scope.fangSheYuanList[i];
+      var dateLiteral = fangSheYuan.date;
+      var date = new Date();
+      date.setFullYear(Number(dateLiteral.substr(0, 4)));
+      date.setMonth(Number(dateLiteral.substr(4, 2)) - 1);
+      date.setDate(Number(dateLiteral.substr(6, 2)));
+      date.setHours(0);
+      date.setMinutes(0);
+      date.setSeconds(0);
+      date.setMilliseconds(0);
 
-    $scope.xinZheng ={
-      type:"",
-      date:"",
-      power:0
+      var today = new Date();
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+      today.setMilliseconds(0);
+
+      var days = (today.getTime() - date.getTime()) / 86400000;
+      var curPower = 0;
+      if (fangSheYuan.type == "Se75") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
+      } else if (fangSheYuan.type == "Ir192") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
+      }
+
+      $scope.fangSheYuanList[i].curPower = Math.round(curPower * 100) / 100;
+
+    }
+
+    $scope.xinZheng = {
+      type: "",
+      date: "",
+      power: 0,
+      curPower: 0
     }
 
 
@@ -37,35 +63,35 @@ angular.module('starter.controllers')
       showDelete: false
     };
 
-    $scope.edit = function(item) {
+    $scope.edit = function (item) {
       alert('Edit Item: ' + item.id);
     };
-    $scope.share = function(item) {
+    $scope.share = function (item) {
       alert('Share Item: ' + item.id);
     };
 
 
-
-    $scope.onItemDelete = function(item) {
+    $scope.onItemDelete = function (item) {
       $scope.fangSheYuanList.splice($scope.fangSheYuanList.indexOf(item), 1);
-      window.localStorage.setItem('fangSheYuanPeiZhi',angular.toJson($scope.fangSheYuanList));
+      window.localStorage.setItem('fangSheYuanPeiZhi', angular.toJson($scope.fangSheYuanList));
     };
 
-    $scope.addItem =function(type,date,power){
-     var item = {id:0,type:"",data:""};
+    $scope.addItem = function (type, date, power) {
+      var item = {id: 0, type: "", data: ""};
       item.id = $scope.fangSheYuanSeq;
       $scope.fangSheYuanSeq++;
       item.type = type;
       item.date = date;
       item.power = power;
+      item.curPower = power;
 
-      $scope.fangSheYuanList.splice($scope.fangSheYuanList.length,0,item);
+      $scope.fangSheYuanList.splice($scope.fangSheYuanList.length, 0, item);
 
     }
 
-    $scope.showTimePicker = function() {
+    $scope.showTimePicker = function () {
       var options = {date: new Date(), mode: 'time'};
-      $cordovaDatePicker.show(options).then(function(date){
+      $cordovaDatePicker.show(options).then(function (date) {
         $scope.timeFieldInModel = date;
       });
     }
@@ -77,9 +103,9 @@ angular.module('starter.controllers')
       $scope.modal = modal;
     });
     $scope.openModal = function () {
-      $scope.xinZheng.type="";
-      $scope.xinZheng.date="";
-      $scope.xinZheng.power=0;
+      $scope.xinZheng.type = "";
+      $scope.xinZheng.date = "";
+      $scope.xinZheng.power = 0;
       $scope.modal.show();
     };
     $scope.closeModal = function () {
@@ -88,12 +114,18 @@ angular.module('starter.controllers')
     };
     $scope.saveAndCloseModal = function () {
 
-      $scope.addItem($scope.xinZheng.type,$scope.xinZheng.date,$scope.xinZheng.power);
+      if ($scope.xinZheng.type == "Tm170" || $scope.xinZheng.type == "Yb169" || $scope.xinZheng.type == "Co60") {
+        alert("所选放射源暂不支持");
+      }
+      else {
 
-      window.localStorage.setItem('fangSheYuanPeiZhi',angular.toJson($scope.fangSheYuanList));
-      window.localStorage.setItem('fangSheYuanSeq',$scope.fangSheYuanSeq);
-      shareService.setFangSheYuan($scope.fangSheYuanList);
-      $scope.modal.hide();
+        $scope.addItem($scope.xinZheng.type, $scope.xinZheng.date, $scope.xinZheng.power);
+
+        window.localStorage.setItem('fangSheYuanPeiZhi', angular.toJson($scope.fangSheYuanList));
+        window.localStorage.setItem('fangSheYuanSeq', $scope.fangSheYuanSeq);
+        shareService.setFangSheYuan($scope.fangSheYuanList);
+        $scope.modal.hide();
+      }
     };
     //Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function () {
@@ -109,9 +141,8 @@ angular.module('starter.controllers')
     });
 
 
-
   })
-  .controller('XinZengFangSheYuanCtrl',function($scope){
+  .controller('XinZengFangSheYuanCtrl', function ($scope) {
 
   }
 )

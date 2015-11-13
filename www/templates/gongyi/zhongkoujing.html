@@ -20,7 +20,7 @@
         <div class="input-label">
           透照方式
         </div>
-        <select ng-model="banZhuang.touZhaoFangShi" ng-init="banZhuang.touZhaoFangShi='SBSY'">
+        <select ng-model="banZhuang.touZhaoFangShi" ng-init="banZhuang.touZhaoFangShi='SBDY'">
           <option ng-repeat="touZhaoFangShi in banZhuangOpt.touZhaoFangShi" value="{{touZhaoFangShi.value}}">
             {{touZhaoFangShi.name}}
           </option>
@@ -38,22 +38,27 @@
         </select>
       </a>
       <a class="item item-input">
+        <span class="input-label">像质计</span>
+        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.xiangZh"/>
+      </a>
+
+      <a class="item item-input">
         <span class="input-label">透照厚度(MM)</span>
-        <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.touZhaoHouDu"/>
+        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.touZhaoHouDu"/>
       </a>
 
       <a class="item item-input">
         <span class="input-label">胶片距离(MM)</span>
-        <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.jiaoPianJuLi"/>
+        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.jiaoPianJuLi"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">有效焦点尺寸(MM)</span>
+        <span class="input-label">焦点尺寸(MM)</span>
         <input type="number" class="text-right" min="0" ng-model="banZhuang.youXiaoJiaoDianChiCun"
                ng-blur="onYouXiaoJiaoDianChiCun()"/>
       </a>
       <a class="item item-input">
         <span class="input-label">最小焦距(MM)</span>
-        <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.zuiXiaoJiaoJu"/>
+        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.zuiXiaoJiaoJu"/>
       </a>
       <a class="item item-input">
         <span class="input-label">实际焦距(MM)</span>
@@ -62,11 +67,11 @@
       </a>
       <a class="item item-input">
       <span class="input-label">透照次数</span>
-      <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.touZhaoCiShu"/>
+      <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.touZhaoCiShu"/>
     </a>
       <a class="item item-input">
         <span class="input-label">一次透照长度</span>
-        <input type="number" class="text-right" placeholder="0" ng-readonly="true" ng-model="banZhuang.yiCiTouZhaoChangDu"/>
+        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.yiCiTouZhaoChangDu"/>
       </a>
       <a class="item item-input item-select">
         <span class="input-label">放射源</span>
@@ -78,7 +83,7 @@
       </a>
       <a class="item item-input">
         <span class="input-label">源强度</span>
-        <input type="number" class="text-right" placeholder="0" ng-model="banZhuang.yuanQiangDu"/>
+        <input type="number" class="text-right"  ng-model="banZhuang.yuanQiangDu"/>
       </a>
       <a class="item item-button-right">
         曝光量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}
