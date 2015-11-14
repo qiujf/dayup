@@ -69,6 +69,7 @@ angular.module('starter.controllers')
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       }
+      $scope.baoGuangLiang.baoGuangLiang = Math.round( $scope.baoGuangLiang.baoGuangLiang*100)/100;
     }
 
     //UI Activities
