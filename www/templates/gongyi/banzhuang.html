@@ -1,11 +1,8 @@
 <ion-view view-title="板状工件工艺">
+
   <ion-content scroll="true" scrollbar-y="true">
 
     <div class="list">
-      <a class="item">
-        <button ng-click="getBanZhuang()">功能测试</button>
-        <button ng-click="setBanZhuang()">功能2</button>
-      </a>
       <a class="item item-input">
         <span class="input-label">公称厚度（MM)</span>
         <input type="number" class="text-right" min="0" ng-blur="onGongChengHouDuChange()"
@@ -28,7 +25,7 @@
           透照等级
         </div>
         <select ng-model="banZhuang.touZhaoDengJi" ng-init="banZhuang.touZhaoDengJi='A'"
-                ng-blur="onTouZhaoDengjiChange()">
+                ng-change="onTouZhaoDengjiChange()">
           <option ng-repeat="touZhaoDengJi in banZhuangOpt.touZhaoDengJi" value="{{touZhaoDengJi.value}}">
             {{touZhaoDengJi.name}}
           </option>
@@ -36,7 +33,7 @@
       </a>
       <a class="item item-input">
         <span class="input-label">像质计</span>
-        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.xiangZh"/>
+        <input type="text" class="text-right" ng-readonly="true" ng-model="banZhuang.xiangZhiJi"/>
       </a>
       <a class="item item-input">
         <span class="input-label">透照厚度(MM)</span>
@@ -45,7 +42,7 @@
 
       <a class="item item-input">
         <span class="input-label">胶片距离(MM)</span>
-        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.jiaoPianJuLi"/>
+        <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.jiaoPianJuLi"/>
       </a>
       <a class="item item-input">
         <span class="input-label">焦点尺寸(MM)</span>
@@ -54,7 +51,7 @@
       </a>
       <a class="item item-input">
         <span class="input-label">最小焦距(MM)</span>
-        <input type="number" class="text-right"  ng-readonly="true" ng-model="banZhuang.zuiXiaoJiaoJu"/>
+        <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.zuiXiaoJiaoJu"/>
       </a>
       <a class="item item-input">
         <span class="input-label">实际焦距(MM)</span>
@@ -63,7 +60,7 @@
       </a>
       <a class="item item-input">
         <span class="input-label">一次透照长度</span>
-        <input type="number" class="text-right"  ng-model="banZhuang.yiCiTouZhaoChangDu"/>
+        <input type="number" class="text-right" ng-model="banZhuang.yiCiTouZhaoChangDu"/>
       </a>
       <a class="item item-input item-select">
         <span class="input-label">放射源</span>
@@ -75,7 +72,7 @@
       </a>
       <a class="item item-input">
         <span class="input-label">源强度</span>
-        <input type="number" class="text-right"  ng-model="banZhuang.yuanQiangDu"/>
+        <input type="number" class="text-right" ng-model="banZhuang.yuanQiangDu"/>
       </a>
       <a class="item item-button-right">
         曝光量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}
@@ -87,19 +84,10 @@
         <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.baoGuangShiJian"> </input>
       </a>
 
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left">
-      <a class="tab-item" href="#">
-        <i class="icon ion-thumbsup"></i>
-        收藏
-      </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-chatbox"></i>
-        查看
-      </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-share"></i>
-        转发
+      <a class="item" ng-show="enableSaving">
+
+        <button class="button button-positive" ng-click="save()">保存</button>
+        </button>
       </a>
     </div>
   </ion-content>

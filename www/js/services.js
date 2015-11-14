@@ -63,7 +63,7 @@ angular.module('starter.services', [])
 
     var fangSheYuanList;
 
-   var fangSheYuanPeiZhiLiteral= window.localStorage.getItem('fangSheYuanPeiZhi');
+    var fangSheYuanPeiZhiLiteral = window.localStorage.getItem('fangSheYuanPeiZhi');
 
     if(fangSheYuanPeiZhiLiteral!=null) {
       fangSheYuanList = angular.fromJson(fangSheYuanPeiZhiLiteral);
@@ -73,13 +73,51 @@ angular.module('starter.services', [])
 
 
     this.getFangSheYuan = function() {
-        return fangSheYuanList;
-      }
-      this.setFangSheYuan = function(fangSheYuan) {
-        fangSheYuanList =fangSheYuan;
-      }
-
+      return fangSheYuanList;
+    }
+    this.setFangSheYuan = function (fangSheYuan) {
+      fangSheYuanList = fangSheYuan;
+    }
 
   })
 
+  .service("historyService", function () {
+
+    var historyList;
+    var historyListLiteral = window.localStorage.getItem('history');
+    if (historyListLiteral != null) {
+      historyList = angular.fromJson(historyListLiteral);
+    } else {
+      historyList = [];
+    }
+
+    this.setAndSaveHistoryList = function (list) {
+      historyList = list;
+      var temp = angular.toJson(historyList);
+      window.localStorage.setItem('history', temp);
+    }
+
+    this.getItem = function (index) {
+      return historyList[index];
+    }
+
+    this.getHistoryList = function () {
+      return historyList;
+    }
+    this.save = function (item) {
+      var isNew = true;
+      for (var i = 0; i < historyList.length; i++) {
+        if (historyList[i].id == item.id) {
+          historyList.splice(i, 1, item);
+          isNew = false;
+        }
+      }
+      if (isNew) {
+        historyList.splice(historyList.length, 0, item);
+      }
+      var temp = angular.toJson(historyList);
+      window.localStorage.setItem('history', temp);
+    }
+
+  })
 ;

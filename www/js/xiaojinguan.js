@@ -4,8 +4,56 @@
 
 angular.module('starter.controllers')
 
-  .controller('XiaoJinGuanCtrl', function ($scope, $ionicModal, shareService) {
+  .controller('XiaoJinGuanCtrl', function ($scope, $stateParams, $ionicModal, shareService, historyService) {
 
+    $scope.enableSaving = true;
+    //初始化
+    var historyId = $stateParams.id;
+    if (historyId != null) {
+      var item = historyService.getItem(historyId);
+
+      $scope.id = item.id;
+      $scope.banZhuang = item.banZhuang;
+      $scope.baoGuangLiang = item.baoGuangLiang;
+      $scope.enableSaving = false;
+    } else {
+      $scope.id = (new Date()).getTime();
+      //板状工艺
+      $scope.banZhuang = {
+        waijing: "",
+        gongChengHouDu: "",
+        hanFengHouDu: "",
+        touZhaoFangShi: "SBSY",
+        touZhaoFangShi_Sub: "",
+        touZhaoDengJi: "A",
+        xiangZhiJi: "",
+        touZhaoHouDu: "",
+        jiaoPianJuLi: "",
+        youXiaoJiaoDianChiCun: "",
+        zuiXiaoJiaoJu: "",
+        shiJiJiaoJu: "",
+        touZhaoCiShu: "",
+        k: 1.03,
+        yiCiTouZhaoChangDu: "",
+        baoGuangLiang: "",
+        fangSheYuanList: [],
+        fangSheYuan: "",
+        yuanQiangDu: "",
+        baoGuangShiJian: ""
+      }
+
+      //曝光量参数，用于曝光量Modal
+      $scope.baoGuangLiang = {
+        shiJiJiaoJu: "",
+        touZhaoHouDu: "",
+        fangSheYuan: "",
+        jiaoJuanPinPai: "",
+        jiaoJuanXingHao: "",
+        jiaoPianXiuZhengXiShuDefault: "",
+        jiaoPianXiuZhengXiShu: "",
+        baoGuangLiang: ""
+      }
+    }
 
     //透照方式Option
     $scope.banZhuangOpt = {
@@ -18,44 +66,147 @@ angular.module('starter.controllers')
 
     };
 
-    //板状工艺
-    $scope.banZhuang = {
-      waijing: "",
-      gongChengHouDu: "",
-      hanFengHouDu: "",
-      touZhaoFangShi: "SBSY",
-      touZhaoFangShi_Sub: "",
-      touZhaoDengJi: "A",
-      touZhaoHouDu: "",
-      jiaoPianJuLi: "",
-      youXiaoJiaoDianChiCun: "",
-      zuiXiaoJiaoJu: "",
-      shiJiJiaoJu: "",
-      touZhaoCiShu: "",
-      k: 1.03,
-      yiCiTouZhaoChangDu: "",
-      baoGuangLiang: "",
-      fangSheYuanList: [],
-      fangSheYuan: "",
-      yuanQiangDu: "",
-      baoGuangShiJian: ""
+
+    $scope.xiangZhiJiYC = {
+      A: [
+        {no: 17, size: 0.080, gchd: 1.2},
+        {no: 16, size: 0.100, gchd: 2},
+        {no: 15, size: 0.125, gchd: 3.5},
+        {no: 14, size: 0.160, gchd: 5.0},
+        {no: 13, size: 0.20, gchd: 7.0},
+        {no: 12, size: 0.25, gchd: 12},
+        {no: 11, size: 0.32, gchd: 18},
+        {no: 10, size: 0.40, gchd: 30},
+        {no: 9, size: 0.50, gchd: 40},
+        {no: 8, size: 0.63, gchd: 50},
+        {no: 7, size: 0.80, gchd: 60},
+        {no: 6, size: 1.00, gchd: 85},
+        {no: 5, size: 1.25, gchd: 120},
+        {no: 4, size: 1.60, gchd: 220},
+        {no: 3, size: 2.00, gchd: 380},
+        {no: 2, size: 2.50, gchd: 9999999}
+      ],
+
+      AB: [
+        {no: 18, size: 0.063, gchd: 1.2},
+        {no: 17, size: 0.080, gchd: 2.0},
+        {no: 16, size: 0.100, gchd: 3.5},
+        {no: 15, size: 0.125, gchd: 5.0},
+        {no: 14, size: 0.160, gchd: 7.0},
+        {no: 13, size: 0.20, gchd: 12},
+        {no: 12, size: 0.25, gchd: 18},
+        {no: 11, size: 0.32, gchd: 30},
+        {no: 10, size: 0.40, gchd: 40},
+        {no: 9, size: 0.50, gchd: 50},
+        {no: 8, size: 0.63, gchd: 60},
+        {no: 7, size: 0.80, gchd: 85},
+        {no: 6, size: 1.00, gchd: 120},
+        {no: 5, size: 1.25, gchd: 220},
+        {no: 4, size: 1.60, gchd: 380},
+        {no: 3, size: 2.00, gchd: 999999}
+      ],
+
+      B: [
+        {no: 19, size: 0.050, gchd: 1.5},
+        {no: 18, size: 0.063, gchd: 2.5},
+        {no: 17, size: 0.080, gchd: 4.0},
+        {no: 16, size: 0.100, gchd: 6.0},
+        {no: 15, size: 0.125, gchd: 8.0},
+        {no: 14, size: 0.160, gchd: 15},
+        {no: 13, size: 0.20, gchd: 25},
+        {no: 12, size: 0.25, gchd: 38},
+        {no: 11, size: 0.32, gchd: 45},
+        {no: 10, size: 0.40, gchd: 55},
+        {no: 9, size: 0.50, gchd: 70},
+        {no: 8, size: 0.63, gchd: 100},
+        {no: 7, size: 0.80, gchd: 170},
+        {no: 6, size: 1.00, gchd: 250},
+        {no: 5, size: 1.25, gchd: 9999999}
+      ]
     }
 
-    //曝光量参数，用于曝光量Modal
-    $scope.baoGuangLiang = {
-      shiJiJiaoJu: "",
-      touZhaoHouDu: "",
-      fangSheYuan: "",
-      jiaoJuanPinPai: "",
-      jiaoJuanXingHao: "",
-      jiaoPianXiuZhengXiShuDefault: "",
-      jiaoPianXiuZhengXiShu: "",
-      baoGuangLiang: ""
+    $scope.xiangZhiJiJPC = {
+      A: [
+        {no: 17, size: 0.080, gchd: 1.2},
+        {no: 16, size: 0.100, gchd: 2},
+        {no: 15, size: 0.125, gchd: 3.5},
+        {no: 14, size: 0.160, gchd: 5.0},
+        {no: 13, size: 0.20, gchd: 10},
+        {no: 12, size: 0.25, gchd: 15},
+        {no: 11, size: 0.32, gchd: 22},
+        {no: 10, size: 0.40, gchd: 38},
+        {no: 9, size: 0.50, gchd: 48},
+        {no: 8, size: 0.63, gchd: 60},
+        {no: 7, size: 0.80, gchd: 85},
+        {no: 6, size: 1.00, gchd: 125},
+        {no: 5, size: 1.25, gchd: 225},
+        {no: 4, size: 1.60, gchd: 375},
+        {no: 3, size: 2.00, gchd: 99999999}
+      ],
+
+      AB: [
+        {no: 18, size: 0.063, gchd: 1.2},
+        {no: 17, size: 0.080, gchd: 2.0},
+        {no: 16, size: 0.100, gchd: 3.5},
+        {no: 15, size: 0.125, gchd: 5.0},
+        {no: 14, size: 0.160, gchd: 10},
+        {no: 13, size: 0.20, gchd: 15},
+        {no: 12, size: 0.25, gchd: 22},
+        {no: 11, size: 0.32, gchd: 38},
+        {no: 10, size: 0.40, gchd: 48},
+        {no: 9, size: 0.50, gchd: 60},
+        {no: 8, size: 0.63, gchd: 85},
+        {no: 7, size: 0.80, gchd: 125},
+        {no: 6, size: 1.00, gchd: 225},
+        {no: 5, size: 1.25, gchd: 375},
+        {no: 4, size: 1.60, gchd: 99999999}
+      ],
+
+      B: [
+        {no: 19, size: 0.050, gchd: 1.5},
+        {no: 18, size: 0.063, gchd: 2.5},
+        {no: 17, size: 0.080, gchd: 4.0},
+        {no: 16, size: 0.100, gchd: 6.0},
+        {no: 15, size: 0.125, gchd: 12},
+        {no: 14, size: 0.160, gchd: 18},
+        {no: 13, size: 0.20, gchd: 30},
+        {no: 12, size: 0.25, gchd: 45},
+        {no: 11, size: 0.32, gchd: 55},
+        {no: 10, size: 0.40, gchd: 70},
+        {no: 9, size: 0.50, gchd: 100},
+        {no: 8, size: 0.63, gchd: 180},
+        {no: 7, size: 0.80, gchd: 300},
+        {no: 6, size: 1.00, gchd: 9999999}
+      ]
     }
 
     /**
      * Internal functions
      */
+
+    function getXiangZhiJi(list, dengji, gchd) {
+      var temp;
+      if (dengji == "A") {
+        temp = list.A;
+      } else if (dengji == "AB") {
+        temp = list.AB;
+      } else if (dengji == "B") {
+        temp = list.B;
+      }
+      var i;
+      for (i = 0; i < temp.length; i++) {
+        if (gchd <= temp[i].gchd) {
+          break;
+        }
+      }
+      return temp[i];
+    }
+
+    function calcXiangZhiJi() {
+      var xiangZhiJiYC = getXiangZhiJi($scope.xiangZhiJiYC, $scope.banZhuang.touZhaoDengJi, $scope.banZhuang.touZhaoHouDu);
+      var xiangZhiJiJPC = getXiangZhiJi($scope.xiangZhiJiJPC, $scope.banZhuang.touZhaoDengJi, $scope.banZhuang.touZhaoHouDu);
+      $scope.banZhuang.xiangZhiJi = "源侧：" + xiangZhiJiYC.no + "(" + xiangZhiJiYC.size + ") 胶片测：" + xiangZhiJiJPC.no + "(" + xiangZhiJiJPC.size + ")";
+    }
 
     function calcBaoGuangLiang() {
       if ($scope.baoGuangLiang.fangSheYuan == "Se75") {
@@ -150,14 +301,13 @@ angular.module('starter.controllers')
       }
 
 
-        var fangSheYuan = shareService.getFangSheYuan();
-        $scope.banZhuang.fangSheYuanList = [];
-        for (var i = 0; i < fangSheYuan.length; i++) {
-          if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
-            $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
-          }
+      var fangSheYuan = shareService.getFangSheYuan();
+      $scope.banZhuang.fangSheYuanList = [];
+      for (var i = 0; i < fangSheYuan.length; i++) {
+        if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
+          $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
         }
-
+      }
 
 
       $scope.banZhuang.fangSheYuan = -1;
@@ -196,7 +346,7 @@ angular.module('starter.controllers')
 
     function calcBaoGuangShiJian() {
       $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
-      if( $scope.banZhuang.baoGuangShiJian<1 && $scope.banZhuang.baoGuangShiJian>0){
+      if ($scope.banZhuang.baoGuangShiJian < 1 && $scope.banZhuang.baoGuangShiJian > 0) {
         alert("曝光时间小于一分钟，请增大实际焦距");
       }
     }
@@ -204,8 +354,37 @@ angular.module('starter.controllers')
     /**
      * UI functions
      */
+
+    $scope.save = function () {
+      var item = {};
+      item.id = $scope.id;
+
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+
+
+      item.date = yyyy + "-" + mm + "-" + dd;
+      item.typeShort = "xiaojinguan";
+      item.type = "小口径管工件";
+      item.banZhuang = $scope.banZhuang;
+      item.baoGuangLiang = $scope.baoGuangLiang;
+      historyService.save(item);
+      alert("保存成功");
+
+    }
+
     $scope.onGongChengHouDuChange = function () {
       calcTouZhaoHouDu();
+      calcXiangZhiJi();
       calcTouZhaoFangShi_Sub();
       calcTouZhaoCiShu();
       calcJiaoPianJuLi();
@@ -219,7 +398,7 @@ angular.module('starter.controllers')
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     }
-    $scope.onWaiJingChange = function(){
+    $scope.onWaiJingChange = function () {
       calcTouZhaoFangShi_Sub();
       calcTouZhaoCiShu();
       calcJiaoPianJuLi();
@@ -234,7 +413,7 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onHanFengChange = function(){
+    $scope.onHanFengChange = function () {
       calcTouZhaoFangShi_Sub();
       calcTouZhaoCiShu();
       calcJiaoPianJuLi();
@@ -250,6 +429,7 @@ angular.module('starter.controllers')
     }
 
     $scope.onTouZhaoDengjiChange = function () {
+      calcXiangZhiJi();
       calcValueOfK();
       calcZuiXiaoJiaoJu();
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {

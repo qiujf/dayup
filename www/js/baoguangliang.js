@@ -48,8 +48,15 @@ angular.module('starter.controllers')
           {selected: true, name: "AGFA D7", value: "AGFA D7", xzxs: 2.0}
         ]
       }
-      ,
 
+    }
+
+    if ($scope.baoGuangLiang.jiaoJuanPinPai == "FS") {
+      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.FS;
+    } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "KD") {
+      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.KD;
+    } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "AGFA") {
+      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
     }
 
     //Business Logics
@@ -71,12 +78,12 @@ angular.module('starter.controllers')
 
     }
 
-    $scope.onJiaoPianXingHaoChange = function (){
-      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = Number( $scope.baoGuangLiang.jiaoPianXiuZhengXiShuDefault);
+    $scope.onJiaoPianXingHaoChange = function () {
+      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = Number($scope.baoGuangLiang.jiaoPianXiuZhengXiShuDefault);
       calcBaoGuangLiang();
     }
 
-    $scope.onJiaoPianXiuZhengXiShuChange= function(){
+    $scope.onJiaoPianXiuZhengXiShuChange = function () {
       calcBaoGuangLiang();
     }
 

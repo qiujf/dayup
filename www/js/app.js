@@ -45,7 +45,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-gongyi': {
             templateUrl: 'templates/tab-gongyi.html',
-            controller:'GongyiCtrl'
+            controller: 'GongyiCtrl'
           }
         }
       })
@@ -55,7 +55,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-canshu': {
             templateUrl: 'templates/tab-canshu.html',
-            controller:'CanshuCtrl'
+            controller: 'CanshuCtrl'
           }
         }
       })
@@ -65,7 +65,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-lishi': {
             templateUrl: 'templates/tab-lishi.html',
-            controller:'LishiCtrl'
+            controller: 'LishiCtrl'
           }
         }
       })
@@ -74,7 +74,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-zhishi': {
             templateUrl: 'templates/tab-zhishi.html',
-            controller:'ZhishiCtrl'
+            controller: 'ZhishiCtrl'
           }
         }
       })
@@ -85,11 +85,10 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-peizhi': {
             templateUrl: 'templates/tab-peizhi.html',
-            controller:'PeizhiCtrl'
+            controller: 'PeizhiCtrl'
           }
         }
       })
-
 
 
       .state('tab.fangsheyuanpeizhi', {
@@ -97,7 +96,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-peizhi': {
             templateUrl: 'templates/peizhi/fangsheyuanpeizhi.html',
-            controller:'FangSheYuanCtrl'
+            controller: 'FangSheYuanCtrl'
           }
         }
       })
@@ -107,7 +106,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-gongyi': {
             templateUrl: 'templates/gongyi/banzhuang.html',
-            controller:'BanzhuangCtrl'
+            controller: 'BanzhuangCtrl'
           }
         }
       })
@@ -117,7 +116,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-gongyi': {
             templateUrl: 'templates/gongyi/xiaojinguan.html',
-            controller:'XiaoJinGuanCtrl'
+            controller: 'XiaoJinGuanCtrl'
           }
         }
       })
@@ -127,16 +126,43 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-gongyi': {
             templateUrl: 'templates/gongyi/zhongkoujing.html',
-            controller:'ZhongKouJingCtrl'
+            controller: 'ZhongKouJingCtrl'
+          }
+        }
+      })
+
+      .state('tab.banzhuanglishi', {
+        url: '/lishi/banzhuang/:id',
+        views: {
+          'tab-lishi': {
+            templateUrl: 'templates/gongyi/banzhuang.html',
+            controller: 'BanzhuangCtrl'
+          }
+        }
+      })
+      .state('tab.xiaojinguanlishi', {
+        url: '/lishi/xiaojinguan/:id',
+        views: {
+          'tab-lishi': {
+            templateUrl: 'templates/gongyi/xiaojinguan.html',
+            controller: 'XiaoJinGuanCtrl'
+          }
+        }
+      })
+      .state('tab.zhongkoujinglishi', {
+        url: '/lishi/zhongkoujing/:id',
+        views: {
+          'tab-lishi': {
+            templateUrl: 'templates/gongyi/zhongkoujing.html',
+            controller: 'ZhongKouJingCtrl'
           }
         }
       })
 
 
-
     /*
-      以下部分仅供参考，以后删除
-    */
+     以下部分仅供参考，以后删除
+     */
 
     /*  .state('tab.chats', {
      url: '/chats',
@@ -172,8 +198,8 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/gongyi');
 
-    })
-    .config(function($ionicConfigProvider) {
+  })
+  .config(function ($ionicConfigProvider) {
 
     $ionicConfigProvider.tabs.position("bottom"); //Places them at the bottom for all OS
     $ionicConfigProvider.tabs.style("standard"); //Makes them all look the same across all OS

@@ -22,8 +22,12 @@ angular.module('starter.controllers')
       $scope.fangSheYuanList = [];
     }
     for (var i = 0; i < $scope.fangSheYuanList.length; i++) {
-      var fangSheYuan = $scope.fangSheYuanList[i];
-      var dateLiteral = fangSheYuan.date;
+
+      $scope.fangSheYuanList[i].curPower = getCurPower($scope.fangSheYuanList[i].type, $scope.fangSheYuanList[i].date, $scope.fangSheYuanList[i].power);
+    }
+
+    function getCurPower(type, startDate, startPower) {
+      var dateLiteral = startDate;
       var date = new Date();
       date.setFullYear(Number(dateLiteral.substr(0, 4)));
       date.setMonth(Number(dateLiteral.substr(4, 2)) - 1);
@@ -41,20 +45,19 @@ angular.module('starter.controllers')
 
       var days = (today.getTime() - date.getTime()) / 86400000;
       var curPower = 0;
-      if (fangSheYuan.type == "Se75") {
-        curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
-      } else if (fangSheYuan.type == "Ir192") {
-        curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
+      if (type == "Se75") {
+        curPower = startPower * Math.pow(0.5, days / 120);
+      } else if (type == "Ir192") {
+        curPower = startPower * Math.pow(0.5, days / 74);
       }
 
-      $scope.fangSheYuanList[i].curPower = Math.round(curPower * 100) / 100;
-
+      return Math.round(curPower * 100) / 100;
     }
 
     $scope.xinZheng = {
       type: "",
       date: "",
-      power: 0,
+      power: "",
       curPower: 0
     }
 
@@ -83,7 +86,7 @@ angular.module('starter.controllers')
       item.type = type;
       item.date = date;
       item.power = power;
-      item.curPower = power;
+      item.curPower = getCurPower(type, date, power);
 
       $scope.fangSheYuanList.splice($scope.fangSheYuanList.length, 0, item);
 
@@ -102,16 +105,19 @@ angular.module('starter.controllers')
     }).then(function (modal) {
       $scope.modal = modal;
     });
+
     $scope.openModal = function () {
       $scope.xinZheng.type = "";
       $scope.xinZheng.date = "";
-      $scope.xinZheng.power = 0;
+      $scope.xinZheng.power = "";
       $scope.modal.show();
     };
+
     $scope.closeModal = function () {
 
       $scope.modal.hide();
     };
+
     $scope.saveAndCloseModal = function () {
 
       if ($scope.xinZheng.type == "Tm170" || $scope.xinZheng.type == "Yb169" || $scope.xinZheng.type == "Co60") {
