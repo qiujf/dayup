@@ -205,7 +205,7 @@ angular.module('starter.controllers')
     function calcXiangZhiJi() {
       var xiangZhiJiYC = getXiangZhiJi($scope.xiangZhiJiYC, $scope.banZhuang.touZhaoDengJi, $scope.banZhuang.touZhaoHouDu);
       var xiangZhiJiJPC = getXiangZhiJi($scope.xiangZhiJiJPC, $scope.banZhuang.touZhaoDengJi, $scope.banZhuang.touZhaoHouDu);
-      $scope.banZhuang.xiangZhiJi = "源侧：" + xiangZhiJiYC.no + "(" + xiangZhiJiYC.size + ") 胶片侧：" + xiangZhiJiJPC.no + "(" + xiangZhiJiJPC.size + ")";
+      $scope.banZhuang.xiangZhiJi = "源侧：" + xiangZhiJiYC.no + "(" + xiangZhiJiYC.size + ") 胶片测：" + xiangZhiJiJPC.no + "(" + xiangZhiJiJPC.size + ")";
     }
 
     function calcBaoGuangLiang() {
@@ -257,14 +257,14 @@ angular.module('starter.controllers')
 
     function calcTouZhaoFangShi_Sub() {
       if (($scope.banZhuang.gongChengHouDu <= 8) && ($scope.banZhuang.hanFengHouDu <= $scope.banZhuang.waijing / 4)) {
-        $scope.banZhuang.touZhaoFangShi_Sub = "倾斜";
+        $scope.banZhuang.touZhaoFangShi_Sub = "双壁双影倾斜";
       } else {
-        $scope.banZhuang.touZhaoFangShi_Sub = "垂直";
+        $scope.banZhuang.touZhaoFangShi_Sub = "双壁双影垂直";
       }
     }
 
     function calcTouZhaoCiShu() {
-      if ($scope.banZhuang.touZhaoFangShi_Sub == "倾斜") {
+      if ($scope.banZhuang.touZhaoFangShi_Sub == "双壁双影倾斜") {
         if ($scope.banZhuang.gongChengHouDu / $scope.banZhuang.waijing <= 0.12) {
           $scope.banZhuang.touZhaoCiShu = 2;
         } else {
@@ -340,11 +340,12 @@ angular.module('starter.controllers')
       } else if (fangSheYuan.type == "Ir192") {
         curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
       }
-      $scope.banZhuang.yuanQiangDu = Math.round(curPower*100)/100;
+
+      $scope.banZhuang.yuanQiangDu = curPower;
     }
 
     function calcBaoGuangShiJian() {
-      $scope.banZhuang.baoGuangShiJian = Math.round($scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu*100)/100;
+      $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
       if ($scope.banZhuang.baoGuangShiJian < 1 && $scope.banZhuang.baoGuangShiJian > 0) {
         alert("曝光时间小于一分钟，请增大实际焦距");
       }

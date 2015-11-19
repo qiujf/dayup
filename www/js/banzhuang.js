@@ -261,11 +261,11 @@ angular.module('starter.controllers')
         curPower = fangSheYuan.power*Math.pow(0.5,days/74);
       }
 
-      $scope.banZhuang.yuanQiangDu = Math.round(curPower*100)/100;
+      $scope.banZhuang.yuanQiangDu = curPower;
     }
 
     function calcBaoGuangShiJian() {
-      $scope.banZhuang.baoGuangShiJian = Math.round($scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu*100)/100;
+      $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
       if ($scope.banZhuang.baoGuangShiJian < 1 && $scope.banZhuang.baoGuangShiJian > 0) {
         alert("曝光时间小于一分钟，请增大实际焦距");
       }

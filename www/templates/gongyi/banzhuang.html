@@ -4,7 +4,7 @@
 
     <div class="list">
       <a class="item item-input">
-        <span class="input-label">公称厚度（MM)</span>
+        <span class="input-label">公称厚度（mm)</span>
         <input type="number" class="text-right" min="0" ng-blur="onGongChengHouDuChange()"
                ng-model="banZhuang.gongChengHouDu"/>
 
@@ -36,30 +36,30 @@
         <input type="text" class="text-right" ng-readonly="true" ng-model="banZhuang.xiangZhiJi"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">透照厚度(MM)</span>
+        <span class="input-label">透照厚度(mm)</span>
         <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.touZhaoHouDu"/>
       </a>
 
       <a class="item item-input">
-        <span class="input-label">胶片距离(MM)</span>
+        <span class="input-label">胶片距离(mm)</span>
         <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.jiaoPianJuLi"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">焦点尺寸(MM)</span>
+        <span class="input-label">焦点尺寸(mm)</span>
         <input type="number" class="text-right" min="0" ng-model="banZhuang.youXiaoJiaoDianChiCun"
                ng-blur="onYouXiaoJiaoDianChiCun()"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">最小焦距(MM)</span>
+        <span class="input-label">最小焦距(mm)</span>
         <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.zuiXiaoJiaoJu"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">实际焦距(MM)</span>
+        <span class="input-label">实际焦距(mm)</span>
         <input type="number" class="text-right" min="0" ng-blur="onShiJiJiaoJuChange()"
                ng-model="banZhuang.shiJiJiaoJu"/>
       </a>
       <a class="item item-input">
-        <span class="input-label">一次透照长度</span>
+        <span class="input-label">一次透照长度(mm)</span>
         <input type="number" class="text-right" ng-model="banZhuang.yiCiTouZhaoChangDu"/>
       </a>
       <a class="item item-input item-select">
@@ -71,23 +71,25 @@
         </select>
       </a>
       <a class="item item-input">
-        <span class="input-label">源强度</span>
+        <span class="input-label">源强度(Ci)</span>
         <input type="number" class="text-right" ng-model="banZhuang.yuanQiangDu"/>
       </a>
       <a class="item item-button-right">
-        曝光量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}
+        曝光量(Ci.min)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}
         <button class="button button-icon icon ion-ios-arrow-right" ng-click="openModal()">
         </button>
       </a>
       <a class="item item-input">
-        曝光时间
+        曝光时间(min)
         <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.baoGuangShiJian"> </input>
       </a>
 
       <a class="item" ng-show="enableSaving">
+        <div class="col">
+          <button class="button button-block button-positive font" ng-click="save()"><b>保存</b></button>
+          </button>
+        </div>
 
-        <button class="button button-positive" ng-click="save()">保存</button>
-        </button>
       </a>
     </div>
   </ion-content>
