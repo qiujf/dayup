@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/www/js/xiaojinguan.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/zhongkoujing.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/lib/ionic/scss/_util.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/templates/modal/youXiaoJiaoDian.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/peizhi/fangsheyuanpeizhi.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/peizhi/xinzengfangsheyuan.html" charset="UTF-8" />
   </component>

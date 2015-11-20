@@ -4,7 +4,7 @@
 
 angular.module('starter.controllers')
 
-  .controller('BanzhuangCtrl', function ($scope, $stateParams, $ionicModal, shareService, historyService) {
+  .controller('BanzhuangCtrl', function ($scope, $stateParams, $ionicPopup, $ionicModal, shareService, historyService) {
 
     $scope.enableSaving = true;
     //初始化
@@ -44,7 +44,7 @@ angular.module('starter.controllers')
       $scope.baoGuangLiang = {
         shiJiJiaoJu: "",
         touZhaoHouDu: "",
-        fangSheYuan: "",
+        fangSheYuanType: "",
         jiaoJuanPinPai: "",
         jiaoJuanXingHao: "",
         jiaoPianXiuZhengXiShuDefault: "",
@@ -123,6 +123,13 @@ angular.module('starter.controllers')
       ]
     }
 
+    $scope.youXiaoJiaoDianList = [
+      {name: 2, value: 2},
+      {name: 2.5, value: 2.5},
+      {name: 3, value: 3},
+      {name: "自定义", value: ""},
+    ]
+
     /**
      * Internal functions
      */
@@ -152,14 +159,19 @@ angular.module('starter.controllers')
     }
 
     function calcBaoGuangLiang() {
-      if ($scope.baoGuangLiang.fangSheYuan == "Se75") {
+      var fangSheYuanType = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan];
+      if (fangSheYuanType.type == "Se75") {
         $scope.baoGuangLiang.baoGuangLiang = 0.000083337 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(2, $scope.banZhuang.touZhaoHouDu / 10);
-      } else if ($scope.baoGuangLiang.fangSheYuan == "Ir192") {
+      } else if (fangSheYuanType.type == "Ir192") {
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       }
-      $scope.banZhuang.baoGuangLiang=$scope.baoGuangLiang.baoGuangLiang;
+      $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+
+
+      $scope.banZhuang.baoGuangLiang = Math.round($scope.banZhuang.baoGuangLiang * 10000) / 10000;
+      $scope.banZhuang.baoGuangliang_tbq = Math.round($scope.banZhuang.baoGuangLiang * 10000 * 0.037) / 10000;
     }
 
     function calcZuiXiaoJiaoJu() {
@@ -187,7 +199,7 @@ angular.module('starter.controllers')
     }
 
     function calcYiCiTouZhaoChangDu() {
-      $scope.banZhuang.yiCiTouZhaoChangDu = Math.round(2 * $scope.banZhuang.shiJiJiaoJu / Math.tan(Math.asin(1 / $scope.banZhuang.k)) * 100) / 100;
+      $scope.banZhuang.yiCiTouZhaoChangDu = Math.round(2 * ($scope.banZhuang.shiJiJiaoJu - $scope.banZhuang.gongChengHouDu - 2) / Math.tan(Math.asin(1 / $scope.banZhuang.k)) * 100) / 100;
     }
 
     function calcTouZhaoHouDu() {
@@ -223,17 +235,17 @@ angular.module('starter.controllers')
       }
 
 
-        var fangSheYuan = shareService.getFangSheYuan();
-        $scope.banZhuang.fangSheYuanList = [];
-        for (var i = 0; i < fangSheYuan.length; i++) {
-          if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
-            $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
-          }
+      var fangSheYuan = shareService.getFangSheYuan();
+      $scope.banZhuang.fangSheYuanList = [];
+      for (var i = 0; i < fangSheYuan.length; i++) {
+        if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
+          $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
         }
+      }
 
 
-      $scope.banZhuang.fangSheYuan=-1;
-      $scope.banZhuang.yuanQiangDu=0;
+      $scope.banZhuang.fangSheYuan = -1;
+      $scope.banZhuang.yuanQiangDu = 0;
       $scope.banZhuang.baoGuangShiJian = 0;
     }
 
@@ -241,26 +253,26 @@ angular.module('starter.controllers')
       var fangSheYuan = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan];
       var dateLiteral = fangSheYuan.date;
       var date = new Date();
-      date.setFullYear(Number(dateLiteral.substr(0,4)));
-      date.setMonth(Number(dateLiteral.substr(4,2))-1);
-      date.setDate(Number(dateLiteral.substr(6,2)));
+      date.setFullYear(Number(dateLiteral.substr(0, 4)));
+      date.setMonth(Number(dateLiteral.substr(4, 2)) - 1);
+      date.setDate(Number(dateLiteral.substr(6, 2)));
       date.setHours(0);
       date.setMinutes(0);
       date.setSeconds(0);
       date.setMilliseconds(0);
 
-      var today =new Date();
+      var today = new Date();
       today.setHours(0);
       today.setMinutes(0);
       today.setSeconds(0);
       today.setMilliseconds(0);
 
-      var days = (today.getTime()-date.getTime())/86400000;
+      var days = (today.getTime() - date.getTime()) / 86400000;
       var curPower = 0;
-      if(fangSheYuan.type=="Se75"){
-        curPower = fangSheYuan.power*Math.pow(0.5,days/120);
-      }else if (fangSheYuan.type=="Ir192"){
-        curPower = fangSheYuan.power*Math.pow(0.5,days/74);
+      if (fangSheYuan.type == "Se75") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
+      } else if (fangSheYuan.type == "Ir192") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
       }
 
       $scope.banZhuang.yuanQiangDu = curPower;
@@ -269,8 +281,20 @@ angular.module('starter.controllers')
     function calcBaoGuangShiJian() {
       $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
       if ($scope.banZhuang.baoGuangShiJian < 1 && $scope.banZhuang.baoGuangShiJian > 0) {
-        alert("曝光时间小于一分钟，请增大实际焦距");
+        alert("曝光时间小于一分钟，请增大实际焦距至" + getTuijianJiaoju().toString());
       }
+    }
+
+    function getTuijianJiaoju() {
+      var fangSheYuanType = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan];
+      var jiaoJu = 0;
+      if (fangSheYuanType.type == "Se75") {
+        jiaoJu = Math.ceil(Math.pow($scope.banZhuang.yuanQiangDu / (0.000083337 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu * Math.pow(2, $scope.banZhuang.touZhaoHouDu / 10)), 0.5));
+      } else if (fangSheYuanType.type == "Ir192") {
+        jiaoJu = Math.ceil(Math.pow($scope.banZhuang.yuanQiangDu / (0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10)), 0.5));
+
+      }
+      return jiaoJu;
     }
 
     /**
@@ -303,7 +327,7 @@ angular.module('starter.controllers')
       alert("保存成功");
 
     }
-    $scope.onGongChengHouDuChange = function(){
+    $scope.onGongChengHouDuChange = function () {
       calcXiangZhiJi();
       calcTouZhaoHouDu();
       calcJiaoPianJuLi();
@@ -318,7 +342,7 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onTouZhaoDengjiChange = function (){
+    $scope.onTouZhaoDengjiChange = function () {
       calcXiangZhiJi();
       calcValueOfK();
       calcZuiXiaoJiaoJu();
@@ -331,14 +355,59 @@ angular.module('starter.controllers')
       calcBaoGuangShiJian();
     }
 
-    $scope.onYouXiaoJiaoDianChiCun=function(){
-      calcZuiXiaoJiaoJu();
-      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
-        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+    $scope.onYouXiaoJiaoDianChiCun = function () {
+      if ($scope.banZhuang.youXiaoJiaoDianChiCun == "") {
+        var myPopup = $ionicPopup.show({
+          templateUrl: "templates/modal/youXiaoJiaoDian.html",
+          title: '请输入有效焦点尺寸',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+                if (!$scope.banZhuang.youXiaoJiaoDianChiCun) {
+                  //don't allow the user to close unless he enters wifi password
+                  e.preventDefault();
+                } else {
+                  var found = false;
+                  for (var i = 0; i < $scope.youXiaoJiaoDianList.length; i++) {
+                    if ($scope.youXiaoJiaoDianList[i].value == $scope.banZhuang.youXiaoJiaoDianChiCun) {
+                      found = true;
+                    }
+                  }
+
+
+                  if (!found) {
+                    var value = $scope.banZhuang.youXiaoJiaoDianChiCun;
+                    $scope.youXiaoJiaoDianList.splice(0, 0, {name: value, value: value});
+                  }
+                  return $scope.banZhuang.youXiaoJiaoDianChiCun;
+                }
+              }
+            }
+          ]
+        });
+        myPopup.then(function (res) {
+          console.log('Tapped!', res);
+          $scope.banZhuang.youXiaoJiaoDianChiCun = res;
+          afterYouXiaoJiaoDianChiCunChange();
+        });
+      } else {
+        afterYouXiaoJiaoDianChiCunChange();
+
+    }
+
+      function afterYouXiaoJiaoDianChiCunChange() {
+        calcZuiXiaoJiaoJu();
+        if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+          $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
+        }
+        calcYiCiTouZhaoChangDu();
+        calcBaoGuangLiang();
+        ddddddddddddd
+        calcBaoGuangShiJian();
       }
-      calcYiCiTouZhaoChangDu();
-      calcBaoGuangLiang();
-      calcBaoGuangShiJian();
     }
 
     $scope.onShiJiJiaoJuChange = function () {
@@ -353,13 +422,13 @@ angular.module('starter.controllers')
     }
 
 
-    $scope.onFangSheYuanChange = function(){
+    $scope.onFangSheYuanChange = function () {
       calcYuanQiangDu();
       calcBaoGuangShiJian();
     }
 
 
-    $scope.onBaoGuangLiangChange = function(){
+    $scope.onBaoGuangLiangChange = function () {
       calcBaoGuangShiJian();
     }
 
@@ -374,7 +443,7 @@ angular.module('starter.controllers')
 
       $scope.baoGuangLiang.shiJiJiaoJu = $scope.banZhuang.shiJiJiaoJu;
       $scope.baoGuangLiang.touZhaoHouDu = $scope.banZhuang.touZhaoHouDu;
-      $scope.baoGuangLiang.fangSheYuan = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan].type;
+      $scope.baoGuangLiang.fangSheYuanType = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan].type;
 
       $scope.modal.show();
     };
@@ -385,6 +454,7 @@ angular.module('starter.controllers')
     $scope.saveAndCloseModal = function () {
 
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+      $scope.banZhuang.baoGuangliang_tbq = $scope.baoGuangLiang.baoGuangliang_tbq;
       $scope.modal.hide();
       $scope.onBaoGuangLiangChange();
     };

@@ -408,6 +408,7 @@ angular.module('starter.controllers')
     $scope.saveAndCloseModal = function () {
 
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+      $scope.banZhuang.baoGuangliang_tbq = $scope.baoGuangLiang.baoGuangliang_tbq;
       $scope.modal.hide();
       $scope.onBaoGuangLiangChange();
     };

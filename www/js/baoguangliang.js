@@ -62,24 +62,24 @@ angular.module('starter.controllers')
     //Business Logics
 
     function calcBaoGuangLiang() {
-      if ($scope.baoGuangLiang.fangSheYuan == "Se75") {
+      if ($scope.baoGuangLiang.fangSheYuanType == "Se75") {
         $scope.baoGuangLiang.baoGuangLiang = 0.000083337 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(2, $scope.banZhuang.touZhaoHouDu / 10);
-      } else if ($scope.baoGuangLiang.fangSheYuan == "Ir192") {
+      } else if ($scope.baoGuangLiang.fangSheYuanType == "Ir192") {
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       }
 
-      $scope.baoGuangLiang.baoGuangLiang = Math.round($scope.baoGuangLiang.baoGuangLiang * 100) / 100;
-      $scope.baoGuangLiang.baoGuangliang_tbq = Math.round($scope.baoGuangLiang.baoGuangLiang * 100 * 0.037) / 100;
+      $scope.baoGuangLiang.baoGuangLiang = Math.round($scope.baoGuangLiang.baoGuangLiang * 10000) / 10000;
+      $scope.baoGuangLiang.baoGuangliang_tbq = Math.round($scope.baoGuangLiang.baoGuangLiang * 10000 * 0.037) / 10000;
     }
 
     //UI Activities
 
-    $scope.saveBaoGuangLiang = function () {
-      $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
-
-    }
+    /*    $scope.saveBaoGuangLiang = function () {
+     $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+     $scope.banZhuang.baoGuangliang_tbq = $scope.baoGuangLiang.baoGuangliang_tbq;
+     }*/
 
     $scope.onJiaoPianXingHaoChange = function () {
       $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = Number($scope.baoGuangLiang.jiaoPianXiuZhengXiShuDefault);

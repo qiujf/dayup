@@ -442,6 +442,8 @@ angular.module('starter.controllers')
     }
 
     $scope.onYouXiaoJiaoDianChiCun = function () {
+
+
       calcZuiXiaoJiaoJu();
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
@@ -495,6 +497,7 @@ angular.module('starter.controllers')
     $scope.saveAndCloseModal = function () {
 
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
+      $scope.banZhuang.baoGuangliang_tbq = $scope.baoGuangLiang.baoGuangliang_tbq;
       $scope.modal.hide();
       $scope.onBaoGuangLiangChange();
     };
