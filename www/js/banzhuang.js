@@ -33,6 +33,7 @@ angular.module('starter.controllers')
         k: 1.03,
         yiCiTouZhaoChangDu: "",
         baoGuangLiang: "",
+        baoGuangliang_tbq: "",
         fangSheYuanList: [],
         fangSheYuan: "",
         yuanQiangDu: "",
@@ -48,7 +49,8 @@ angular.module('starter.controllers')
         jiaoJuanXingHao: "",
         jiaoPianXiuZhengXiShuDefault: "",
         jiaoPianXiuZhengXiShu: "",
-        baoGuangLiang: ""
+        baoGuangLiang: "",
+        baoGuangliang_tbq: ""
       }
     }
 

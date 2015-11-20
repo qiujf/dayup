@@ -87,9 +87,10 @@
         <input type="number" class="text-right" ng-model="banZhuang.yuanQiangDu"/>
       </a>
       <a class="item item-button-right">
-        曝光量(Ci.min)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}
-        <button class="button button-icon icon ion-ios-arrow-right" ng-click="openModal()">
-        </button>
+        曝光量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{banZhuang.baoGuangLiang}}Ci.min&nbsp&nbsp&nbsp&nbsp<span
+        style="color:#A9A9A9">gdasda&nbsp; </span>
+        <!-- <button class="button button-icon icon ion-ios-arrow-right" ng-click="openModal()">
+         </button>-->
       </a>
       <a class="item item-input">
         曝光时间(min)
@@ -97,9 +98,10 @@
       </a>
 
       <a class="item" ng-show="enableSaving">
-
-        <button class="button button-positive" ng-click="save()">保存</button>
-        </button>
+        <div class="col">
+          <button class="button button-block button-positive font" ng-click="save()"><b>保存</b></button>
+          </button>
+        </div>
       </a>
     </div>
 

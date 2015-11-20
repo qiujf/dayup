@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ecac6a-d03f-4260-9107-07ffa5ba4a50" name="Default" comment="version0.1">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/gongyi/banzhuang.html" afterPath="$PROJECT_DIR$/www/templates/gongyi/banzhuang.html" />
+    <list default="true" id="c0ecac6a-d03f-4260-9107-07ffa5ba4a50" name="Default" comment="修改国际单位">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/banzhuang.js" afterPath="$PROJECT_DIR$/www/js/banzhuang.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/baoguangliang.js" afterPath="$PROJECT_DIR$/www/js/baoguangliang.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic.project" afterPath="$PROJECT_DIR$/ionic.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-gongyi.html" afterPath="$PROJECT_DIR$/www/templates/tab-gongyi.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html" afterPath="$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/xiaojinguan.js" afterPath="$PROJECT_DIR$/www/js/xiaojinguan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/zhongkoujing.js" afterPath="$PROJECT_DIR$/www/js/zhongkoujing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html" afterPath="$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html" />
     </list>
     <list id="1ce37d53-3c2e-467a-bc1c-8bff1c5b2255" name="Failed commit: Default" comment="完成板状工艺，除了放射源强度" />
     <ignored path="app02.iws" />
@@ -37,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="175" column="25" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="25" />
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -47,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/baoguangliang.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -55,12 +51,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaojinguan.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="xiaojinguan.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.25">
-              <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-              <folding />
+            <state vertical-scroll-proportion="0.6308725">
+              <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#a#14;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +66,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
@@ -88,28 +86,28 @@
       <file leaf-file-name="zhongkoujing.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.0">
-              <caret line="85" column="26" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="26" />
+            <state vertical-scroll-proportion="-22.25">
+              <caret line="81" column="48" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaojinguan.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tab-gongyi.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/tab-gongyi.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.625">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xiaojinguan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="266" column="60" selection-start-line="266" selection-start-column="60" selection-end-line="266" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="143" column="32" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="32" />
+              <caret line="281" column="88" selection-start-line="281" selection-start-column="88" selection-end-line="281" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -128,8 +126,8 @@
       <file leaf-file-name="banzhuang.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/gongyi/banzhuang.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.125">
-              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+            <state vertical-scroll-proportion="-28.125">
+              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="90" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -165,7 +163,6 @@
         <option value="$PROJECT_DIR$/www/js/edit.js" />
         <option value="$PROJECT_DIR$/www/templates/peizhi/fangsheyuan.html" />
         <option value="$PROJECT_DIR$/www/js/fangsheyuan.js" />
-        <option value="$PROJECT_DIR$/www/templates/tab-gongyi.html" />
         <option value="$PROJECT_DIR$/www/js/peizhi.js" />
         <option value="$PROJECT_DIR$/www/templates/peizhi/xinzengfangsheyuan.html" />
         <option value="$PROJECT_DIR$/www/templates/peizhi/fangsheyuanpeizhi.html" />
@@ -176,14 +173,15 @@
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/baoguangliang.html" />
-        <option value="$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html" />
-        <option value="$PROJECT_DIR$/www/js/banzhuang.js" />
         <option value="$PROJECT_DIR$/www/js/zhongkoujing.js" />
-        <option value="$PROJECT_DIR$/www/js/baoguangliang.js" />
         <option value="$PROJECT_DIR$/www/templates/gongyi/banzhuang.html" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html" />
         <option value="$PROJECT_DIR$/www/js/xiaojinguan.js" />
+        <option value="$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html" />
+        <option value="$PROJECT_DIR$/www/templates/tab-gongyi.html" />
+        <option value="$PROJECT_DIR$/www/js/banzhuang.js" />
+        <option value="$PROJECT_DIR$/www/js/baoguangliang.js" />
+        <option value="$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html" />
       </list>
     </option>
   </component>
@@ -229,7 +227,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,6 +341,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,7 +538,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447436973353</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="修改国际单位">
+      <created>1447951391847</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1447951391847</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -553,20 +557,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17740232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17740232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20591341" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -586,7 +590,8 @@
     <MESSAGE value="完成板状工艺&#10;" />
     <MESSAGE value="修改bug" />
     <MESSAGE value="version0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="version0.1" />
+    <MESSAGE value="修改国际单位" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改国际单位" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -801,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-gongyi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-console/www/console-via-logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -833,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -863,7 +859,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
@@ -877,26 +873,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
+    <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="25" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/gongyi/banzhuang.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.125">
-          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+          <caret line="281" column="88" selection-start-line="281" selection-start-column="88" selection-end-line="281" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.0">
-          <caret line="85" column="26" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="26" />
+        <state vertical-scroll-proportion="-22.25">
+          <caret line="81" column="48" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-gongyi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.625">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -904,26 +908,28 @@
     <entry file="file://$PROJECT_DIR$/www/js/baoguangliang.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/gongyi/banzhuang.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.25">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+        <state vertical-scroll-proportion="-28.125">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="90" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
+    <entry file="file://$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="266" column="60" selection-start-line="266" selection-start-column="60" selection-end-line="266" selection-end-column="60" />
-          <folding />
+        <state vertical-scroll-proportion="0.6308725">
+          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#a#14;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
