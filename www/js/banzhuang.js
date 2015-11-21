@@ -275,17 +275,36 @@ angular.module('starter.controllers')
         curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
       }
 
-      $scope.banZhuang.yuanQiangDu = curPower;
+      $scope.banZhuang.yuanQiangDu = Math.round(curPower * 10000) / 10000;
     }
 
     function calcBaoGuangShiJian() {
-      $scope.banZhuang.baoGuangShiJian = $scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu;
+      $scope.banZhuang.baoGuangShiJian = Math.round(($scope.banZhuang.baoGuangLiang / $scope.banZhuang.yuanQiangDu) * 100) / 100;
+
       if ($scope.banZhuang.baoGuangShiJian < 1 && $scope.banZhuang.baoGuangShiJian > 0) {
-        alert("曝光时间小于一分钟，请增大实际焦距至" + getTuijianJiaoju().toString());
+
+        var myPopup = $ionicPopup.show({
+          template: '<span style="color:red">曝光时间小于一分钟，请增大实际焦距至{{getTuijianJiaoju().toString()}}mm以上</span>',
+          title: '<h3><b>警告</b></h3>',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+
+              }
+            }
+          ]
+        });
+        myPopup.then(function (res) {
+
+        })
+
       }
     }
 
-    function getTuijianJiaoju() {
+    $scope.getTuijianJiaoju = function () {
       var fangSheYuanType = $scope.banZhuang.fangSheYuanList[$scope.banZhuang.fangSheYuan];
       var jiaoJu = 0;
       if (fangSheYuanType.type == "Se75") {
@@ -327,6 +346,7 @@ angular.module('starter.controllers')
       alert("保存成功");
 
     }
+
     $scope.onGongChengHouDuChange = function () {
       calcXiangZhiJi();
       calcTouZhaoHouDu();
@@ -356,58 +376,14 @@ angular.module('starter.controllers')
     }
 
     $scope.onYouXiaoJiaoDianChiCun = function () {
-      if ($scope.banZhuang.youXiaoJiaoDianChiCun == "") {
-        var myPopup = $ionicPopup.show({
-          templateUrl: "templates/modal/youXiaoJiaoDian.html",
-          title: '请输入有效焦点尺寸',
-          scope: $scope,
-          buttons: [
-            {
-              text: '<b>确定</b>',
-              type: 'button-positive',
-              onTap: function (e) {
-                if (!$scope.banZhuang.youXiaoJiaoDianChiCun) {
-                  //don't allow the user to close unless he enters wifi password
-                  e.preventDefault();
-                } else {
-                  var found = false;
-                  for (var i = 0; i < $scope.youXiaoJiaoDianList.length; i++) {
-                    if ($scope.youXiaoJiaoDianList[i].value == $scope.banZhuang.youXiaoJiaoDianChiCun) {
-                      found = true;
-                    }
-                  }
-
-
-                  if (!found) {
-                    var value = $scope.banZhuang.youXiaoJiaoDianChiCun;
-                    $scope.youXiaoJiaoDianList.splice(0, 0, {name: value, value: value});
-                  }
-                  return $scope.banZhuang.youXiaoJiaoDianChiCun;
-                }
-              }
-            }
-          ]
-        });
-        myPopup.then(function (res) {
-          console.log('Tapped!', res);
-          $scope.banZhuang.youXiaoJiaoDianChiCun = res;
-          afterYouXiaoJiaoDianChiCunChange();
-        });
-      } else {
-        afterYouXiaoJiaoDianChiCunChange();
-
-    }
-
-      function afterYouXiaoJiaoDianChiCunChange() {
-        calcZuiXiaoJiaoJu();
-        if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
-          $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
-        }
-        calcYiCiTouZhaoChangDu();
-        calcBaoGuangLiang();
-        ddddddddddddd
-        calcBaoGuangShiJian();
+      calcZuiXiaoJiaoJu();
+      if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
+        $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
+      calcYiCiTouZhaoChangDu();
+      calcBaoGuangLiang();
+      calcBaoGuangShiJian();
+
     }
 
     $scope.onShiJiJiaoJuChange = function () {
@@ -429,6 +405,10 @@ angular.module('starter.controllers')
 
 
     $scope.onBaoGuangLiangChange = function () {
+      calcBaoGuangShiJian();
+    }
+
+    $scope.onYuanQiangDuChange = function () {
       calcBaoGuangShiJian();
     }
 
@@ -471,6 +451,10 @@ angular.module('starter.controllers')
       // Execute action
     });
 
+    $scope.setYouXiaoJiaoDianChiCun = function (value) {
+      $scope.banZhuang.youXiaoJiaoDianChiCun = value;
+      $scope.onYouXiaoJiaoDianChiCun();
+    }
 
     /**
      * 内部测试
@@ -496,6 +480,7 @@ angular.module('starter.controllers')
       $scope.banZhuang.baoGuangShiJian = 18;
 
     }
+
 
   });
 
