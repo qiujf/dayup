@@ -16,6 +16,8 @@ angular.module('starter.controllers')
       $scope.banZhuang = item.banZhuang;
       $scope.baoGuangLiang = item.baoGuangLiang;
       $scope.enableSaving = false;
+      calcYuanQiangDu();
+      calcBaoGuangShiJian();
     } else {
       $scope.id = (new Date()).getTime();
       //板状工艺
@@ -250,7 +252,9 @@ angular.module('starter.controllers')
       $scope.banZhuang.fangSheYuanList = [];
       for (var i = 0; i < fangSheYuan.length; i++) {
         if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
-          $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
+          if (fangSheYuan[i].type == "Se75" || fangSheYuan[i].type == "Ir192") {
+            $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
+          }
         }
       }
 

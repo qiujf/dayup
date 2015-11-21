@@ -11,11 +11,14 @@
 
 
   </ion-header-bar>
-
-
   <ion-content ng-controller="XinZengFangSheYuanCtrl">
     <div class="list">
-
+      <a class="item item-input">
+        <div class="input-label">
+          容器编号
+        </div>
+        <input type="number" class="text-right" ng-model="xinZheng.rongQi"> </input>
+      </a>
       <a class="item item-input item-select">
         <span class="input-label">放射源</span>
         <select ng-model="xinZheng.type">
@@ -29,22 +32,20 @@
           </option>
           <option value="Co60">Co60
           </option>
-
         </select>
       </a>
-      <a class="item item-input item-select">
+      <a class="item item-input">
         <div class="input-label">
           起始居里日期
         </div>
-        <input type="text" class="text-right" ng-model="xinZheng.date"> </input>
+        <input type="text" class="text-right" ng-model="xinZheng.date" ng-blur="checkDate()"> </input>
       </a>
-      <a class="item item-input item-select">
+      <a class="item item-input">
         <div class="input-label">
           起始居里强度
         </div>
         <input type="number" class="text-right" ng-model="xinZheng.power"> </input>
-      </a>
-      <a>
+      </a></div>
 
 
   </ion-content>

@@ -1,28 +1,35 @@
 <ion-view view-title="放射源配置" ng-controller="FangSheYuanCtrl">
 
 
+  <ion-header-bar class="bar-subheader bar-balanced">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+    </div>
+    <h1 class="title"></h1>
 
-    <ion-header-bar class="bar-subheader bar-balanced">
-      <div class="buttons">
-        <button class="button button-icon icon ion-ios-minus-outline"
-                ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
-      </div>
-      <h1 class="title"></h1>
-      <div class="buttons">
-        <button class="button button-icon icon ion-ios-plus-outline" ng-click="openModal()"
-                ></button>
-      </div>
-    </ion-header-bar>
-    <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
-  <ion-content >
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-plus-outline" ng-click="openModal()"
+        ></button>
+    </div>
+  </ion-header-bar>
+  <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
+  <ion-content>
     <ion-list show-delete="data.showDelete">
 
       <ion-item ng-repeat="item in fangSheYuanList"
                 item="item"
                 class="item-remove-animate">
-         <p>编号{{ item.id }}</p>
+        <p>序号{{ $index+1 }}</p>
+
+        <p>编号{{ item.id }}</p>
+
+        <p>容器编号{{ item.rongQi }}</p>
+
         <p>类型{{ item.type }}</p>
+
         <p>起始居里日期{{ item.date}}</p>
+
         <p>起始居里强度{{ item.power}}</p>
 
         <p>当前居里强度{{item.curPower}}</p>

@@ -6,7 +6,6 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
-
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -65,7 +64,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-lishi': {
             templateUrl: 'templates/tab-lishi.html',
-            controller: 'LishiCtrl'
+            controller: 'HistoryCtrl'
           }
         }
       })
@@ -85,7 +84,7 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         views: {
           'tab-peizhi': {
             templateUrl: 'templates/tab-peizhi.html',
-            controller: 'PeizhiCtrl'
+            controller: 'FangSheYuanCtrl'
           }
         }
       })

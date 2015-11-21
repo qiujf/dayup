@@ -3,7 +3,7 @@
  */
 angular.module('starter.controllers')
 
-  .controller('HistoryCtrl', function ($scope, $ionicModal, historyService) {
+  .controller('HistoryCtrl', function ($scope, $ionicPopup, $ionicModal, historyService) {
     //Data
 
     /*
@@ -22,6 +22,7 @@ angular.module('starter.controllers')
       showDelete: false
     };
 
+
     $scope.edit = function (item) {
       alert('Edit Item: ' + item.id);
     };
@@ -35,7 +36,57 @@ angular.module('starter.controllers')
       historyService.setAndSaveHistoryList($scope.historyList);
     };
 
+    $scope.onSearch = function () {
+      $scope.search = {
+        type: "",
+        gongChengHouDu: "",
+        waiJing: ""
+      }
 
+      var myPopup = $ionicPopup.show({
+        templateUrl: "templates/modal/search.html",
+        title: '<h3><b>搜索条件</b></h3>',
+        scope: $scope,
+        buttons: [
+          {
+            text: '<b>确定</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+              return $scope.search;
+            }
+          }
+        ]
+      });
+      myPopup.then(function (res) {
+        search(res);
+      })
+    }
+
+    function search(res) {
+
+      var searchResult = [];
+      var list = historyService.getHistoryList();
+      for (var i = 0; i < list.length; i++) {
+        if (res.type != "all") {
+          if (res.type != list[i].typeShort) {
+            continue;
+          }
+        }
+
+        if ("" !== res.gongChengHouDu && list[i].banZhuang.gongChengHouDu != res.gongChengHouDu) {
+          continue;
+        }
+
+        if ("" !== res.waiJing && list[i].banZhuang.waijing != res.waiJing) {
+          continue;
+        }
+
+        searchResult.splice(searchResult.length, 0, list[i]);
+      }
+
+      $scope.historyList = searchResult;
+
+    }
   }
 )
 ;

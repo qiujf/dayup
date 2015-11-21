@@ -81,7 +81,7 @@
         <span style="color:black" class="input-label">放射源</span>
         <select ng-model="banZhuang.fangSheYuan" ng-init="" ng-change="onFangSheYuanChange()">
           <option ng-repeat="fangsheYuan in banZhuang.fangSheYuanList" value="{{$index}}">
-            {{fangsheYuan.type}}@{{fangsheYuan.date}}
+            {{fangsheYuan.type}}|容器{{fangsheYuan.rongQi}}|{{fangsheYuan.date}}
           </option>
         </select>
       </a>

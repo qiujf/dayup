@@ -1,14 +1,17 @@
 <ion-view view-title="历史记录" ng-controller="HistoryCtrl">
   <ion-header-bar class="bar-subheader bar-balanced">
-    <div class="buttons">
+
+    <div class="bar bar-header bar-positive">
       <button class="button button-icon icon ion-ios-minus-outline"
               ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      <button class="button button-icon icon ion-android-search"
+              ng-click="onSearch()"></button>
     </div>
+
+
     <h1 class="title"></h1>
 
-    <div class="buttons">
 
-    </div>
   </ion-header-bar>
   <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
   <ion-content>
@@ -22,6 +25,8 @@
         <p>类型:{{ item.type }}</p>
 
         <p>公称厚度:{{ item.banZhuang.gongChengHouDu }}</p>
+
+        <p ng-hide="'banzhuang'==item.typeShort">外径:{{item.banZhuang.waijing}}</p>
 
         <p><a href="#/tab/lishi/{{item.typeShort}}/{{$index}}">详细...</a></p>
         <ion-delete-button class="ion-minus-circled"
