@@ -38,7 +38,7 @@ angular.module('starter.controllers')
 
     $scope.onSearch = function () {
       $scope.search = {
-        type: "",
+        type: "all",
         gongChengHouDu: "",
         waiJing: ""
       }
