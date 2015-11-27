@@ -1,7 +1,18 @@
-<ion-view view-title="工艺制定">
-  <ion-content>
-    <div class="title">
-      知识查阅
+
+<ion-view view-title="知识查阅">
+
+  <ion-content class="has-header padding" ng-controller="GalleryCtrl">
+
+    <div class="list">
+
+      <div ng-repeat="image in allImages">
+        <a class="item item-button-right">
+          <span style="color:black;font-weight: bold; font-size: 14px" class="input-label">{{image.name}}</span>
+          <button class="button button-small button-positive" ng-click="showImages($index)">查看</button>
+        </a>
+      </div>
     </div>
+
   </ion-content>
 </ion-view>
+</body>
