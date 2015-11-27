@@ -24,3 +24,16 @@
   -ms-flex-item-align: auto;
   align-self: auto;
 }
+
+.input-area{
+  background-color: #e7e1be;
+}
+
+.input-hide{
+  background-color: white;
+}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+  background-color: transparent;
+  cursor: not-allowed;
+}

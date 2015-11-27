@@ -20,30 +20,41 @@
       <ion-item ng-repeat="item in fangSheYuanList"
                 item="item"
                 class="item-remove-animate">
-        <p>序号{{ $index+1 }}</p>
+        <div class="row">
+          <div class="col-50">
 
-        <p>编号{{ item.id }}</p>
+            <p><b>序号：</b>&nbsp;&nbsp;&nbsp; {{ $index+1 }}</p>
+          </div>
+          <div class="col-50">
 
-        <p>容器编号{{ item.rongQi }}</p>
+            <p><b>编号：</b>&nbsp;&nbsp;&nbsp; {{ item.id }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-50">
+            <p><b>类型：</b>&nbsp;&nbsp;&nbsp; {{ item.type }}</p>
+          </div>
+          <div class="col-50">
 
-        <p>类型{{ item.type }}</p>
+            <p><b>容器编号：&nbsp;&nbsp;&nbsp;</b> {{ item.rongQi }} <a style="color:grey" ng-click="editRongQi({{$index}})">(修改)</a></p>
 
-        <p>起始居里日期{{ item.date}}</p>
 
-        <p>起始居里强度{{ item.power}}</p>
+          </div>
+        </div>
 
-        <p>当前居里强度{{item.curPower}}</p>
+        <div class="row">
+          <p><b>起始居里日期</b>：&nbsp;&nbsp;&nbsp; {{ item.date}}</p>
+        </div>
+        <div class="row">
+          <p><b>起始居里强度：</b>&nbsp;&nbsp;&nbsp; {{ item.power}}</p>
+        </div>
+        <div class="row">
+          <p><b>当前居里强度：</b>&nbsp;&nbsp;&nbsp; {{item.curPower}}</p>
+        </div>
         <ion-delete-button class="ion-minus-circled"
                            ng-click="onItemDelete(item)">
         </ion-delete-button>
-        <ion-option-button class="button-assertive"
-                           ng-click="edit(item)">
-          Edit
-        </ion-option-button>
-        <ion-option-button class="button-calm"
-                           ng-click="share(item)">
-          Share
-        </ion-option-button>
+
         <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
       </ion-item>
 

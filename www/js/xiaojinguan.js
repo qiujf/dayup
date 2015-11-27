@@ -7,6 +7,7 @@ angular.module('starter.controllers')
   .controller('XiaoJinGuanCtrl', function ($scope, $stateParams, $ionicPopup, $ionicModal, shareService, historyService) {
 
     $scope.enableSaving = true;
+    $scope.operationable = false;
     //初始化
     var historyId = $stateParams.id;
     if (historyId != null) {
@@ -15,7 +16,7 @@ angular.module('starter.controllers')
       $scope.id = item.id;
       $scope.banZhuang = item.banZhuang;
       $scope.baoGuangLiang = item.baoGuangLiang;
-      $scope.enableSaving = false;
+      //$scope.enableSaving = false;
       calcYuanQiangDu();
       calcBaoGuangShiJian();
     } else {
@@ -421,7 +422,23 @@ angular.module('starter.controllers')
       item.banZhuang = $scope.banZhuang;
       item.baoGuangLiang = $scope.baoGuangLiang;
       historyService.save(item);
-      alert("保存成功");
+      var myPopup = $ionicPopup.show({
+        template: '',
+        title: '<h3><b>保存成功</b></h3>',
+        scope: $scope,
+        buttons: [
+          {
+            text: '<b>确定</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+
+            }
+          }
+        ]
+      });
+      myPopup.then(function (res) {
+
+      })
 
     }
 
@@ -446,10 +463,24 @@ angular.module('starter.controllers')
       if ($scope.banZhuang.waijing > 100 || $scope.banZhuang.waijing == undefined) {
 
         $scope.inputWaiJingColor = 'red';
+        var myPopup = $ionicPopup.show({
+          template: '<span style="color:red">外径不能大于100毫米</span>',
+          title: '<h3><b>警告</b></h3>',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+
+              }
+            }
+          ]
+        });
+        $scope.operationable = false;
       } else {
-
-
         $scope.inputWaiJingColor = 'black';
+        $scope.operationable = true;
       }
 
       calcTouZhaoFangShi_Sub();
@@ -506,7 +537,23 @@ angular.module('starter.controllers')
 
     $scope.onShiJiJiaoJuChange = function () {
       if ($scope.banZhuang.shiJiJiaoJu < $scope.banZhuang.zuiXiaoJiaoJu) {
-        alert("实际焦距不能小于最小焦距");
+        var myPopup = $ionicPopup.show({
+          template: '<span style="color:red">实际焦距不能小于最小焦距</span>',
+          title: '<h3><b>警告</b></h3>',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+
+              }
+            }
+          ]
+        });
+        myPopup.then(function (res) {
+
+        });
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
       calcYiCiTouZhaoChangDu();

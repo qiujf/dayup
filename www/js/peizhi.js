@@ -60,9 +60,12 @@ angular.module('starter.controllers')
       return Math.round(curPower * 100) / 100;
     }
 
-    $scope.xinZheng = {
+    $scope.idx =0;
+    $scope.fangSheYuan = {
+      id:"",
       type: "",
-      rongQi: "",
+      rongQi:"",
+      fangSheYuan: "",
       date: "",
       power: "",
       curPower: 0
@@ -86,12 +89,13 @@ angular.module('starter.controllers')
       window.localStorage.setItem('fangSheYuanPeiZhi', angular.toJson($scope.fangSheYuanList));
     };
 
-    $scope.addItem = function (type, rongQi, date, power) {
+    $scope.addItem = function (type, rongQi, fangSheYuan,date, power) {
       var item = {id: 0, type: "", data: ""};
       item.id = $scope.fangSheYuanSeq;
       $scope.fangSheYuanSeq++;
       item.type = type;
-      item.rongQi = rongQi,
+      item.rongQi = rongQi;
+      item.fangSheYuan = fangSheYuan,
         item.date = date;
       item.power = power;
       item.curPower = getCurPower(type, date, power);
@@ -107,6 +111,37 @@ angular.module('starter.controllers')
       });
     }
 
+    $scope.editRongQi = function(index){
+      $scope.idx = index;
+      $scope.fangSheYuan.rongQi = $scope.fangSheYuanList[index].rongQi;
+      var myPopup = $ionicPopup.show({
+        templateUrl: "templates/modal/editRongQi.html",
+        title: '<h3><b>修改容器编号</b></h3>',
+        scope: $scope,
+        buttons: [
+          {
+            text: '<b>确定</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+              return true;
+            }
+          } ,  {
+            text: '<b>取消</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+              return false;
+            }
+          }
+        ]
+      });
+      myPopup.then(function (res) {
+        if(res){
+          $scope.fangSheYuanList[$scope.idx].rongQi = $scope.fangSheYuan.rongQi;
+          saveFangSheYuan();
+        }
+      })
+    }
+
     $ionicModal.fromTemplateUrl('templates/peizhi/xinzengfangsheyuan.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -115,8 +150,8 @@ angular.module('starter.controllers')
     });
 
     $scope.openModal = function () {
-      $scope.xinZheng.type = "";
-      $scope.xinZheng.rongQi = "";
+      $scope.fangSheYuan.type = "";
+      $scope.fangSheYuan.fangSheYuan = "";
 
       var today = new Date();
       var dd = today.getDate();
@@ -131,14 +166,14 @@ angular.module('starter.controllers')
       }
 
 
-      $scope.xinZheng.date = yyyy.toString() + mm.toString() + dd.toString();
-      $scope.xinZheng.power = "";
+      $scope.fangSheYuan.date = yyyy.toString() + mm.toString() + dd.toString();
+      $scope.fangSheYuan.power = "";
       $scope.modal.show();
     };
 
     $scope.checkDate = function () {
       var rs = true;
-      var temp = $scope.xinZheng.date;
+      var temp = $scope.fangSheYuan.date;
       var reg = /^(\d{4})(\d{2})(\d{2})$/;
       var r = temp.match(reg);
       if (r == null) rs = false;
@@ -152,6 +187,20 @@ angular.module('starter.controllers')
       if (!rs) {
 
         alert("请输入正确的日期格式:yyyyMMdd");
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+          dd = '0' + dd
+        }
+        if (mm < 10) {
+          mm = '0' + mm
+        }
+
+
+        $scope.fangSheYuan.date = yyyy.toString() + mm.toString() + dd.toString();
 
 
       }
@@ -162,13 +211,16 @@ angular.module('starter.controllers')
       $scope.modal.hide();
     };
 
+    function saveFangSheYuan() {
+      window.localStorage.setItem('fangSheYuanPeiZhi', angular.toJson($scope.fangSheYuanList));
+      window.localStorage.setItem('fangSheYuanSeq', $scope.fangSheYuanSeq);
+    }
+
     $scope.saveAndCloseModal = function () {
 
 
-      $scope.addItem($scope.xinZheng.type, $scope.xinZheng.rongQi, $scope.xinZheng.date, $scope.xinZheng.power);
-
-      window.localStorage.setItem('fangSheYuanPeiZhi', angular.toJson($scope.fangSheYuanList));
-      window.localStorage.setItem('fangSheYuanSeq', $scope.fangSheYuanSeq);
+      $scope.addItem($scope.fangSheYuan.type,$scope.fangSheYuan.rongQi, $scope.fangSheYuan.fangSheYuan, $scope.fangSheYuan.date, $scope.fangSheYuan.power);
+      saveFangSheYuan();
       shareService.setFangSheYuan($scope.fangSheYuanList);
       $scope.modal.hide();
 
@@ -204,6 +256,7 @@ angular.module('starter.controllers')
       });
       myPopup.then(function (res) {
         search(res);
+        saveFangSheYuan();
       })
 
     }
@@ -231,10 +284,7 @@ angular.module('starter.controllers')
 
 
   }
-)
-  .
-  controller('XinZengFangSheYuanCtrl', function ($scope) {
 
-  }
+
 )
 ;
