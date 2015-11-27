@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0ecac6a-d03f-4260-9107-07ffa5ba4a50" name="Default" comment="201511211943">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/gallery-zoomview.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/zhishi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-zhishi.html" afterPath="$PROJECT_DIR$/www/templates/tab-zhishi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/banzhuang.js" afterPath="$PROJECT_DIR$/www/js/banzhuang.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/baoguangliang.js" afterPath="$PROJECT_DIR$/www/js/baoguangliang.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/xiaojinguan.js" afterPath="$PROJECT_DIR$/www/js/xiaojinguan.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/zhongkoujing.js" afterPath="$PROJECT_DIR$/www/js/zhongkoujing.js" />
     </list>
     <list id="1ce37d53-3c2e-467a-bc1c-8bff1c5b2255" name="Failed commit: Default" comment="完成板状工艺，除了放射源强度" />
     <ignored path="app02.iws" />
@@ -33,26 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="banzhuang.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/gongyi/banzhuang.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,45 +57,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xiaojinguan.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#1;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#2;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#3;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#4;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#5;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#6;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#7;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#a#7;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#8;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#9;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#10;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#11;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#12;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#a#12;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#13;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="tab-zhishi.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/tab-zhishi.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -126,6 +64,8 @@
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <marker date="1448647117195" expanded="true" signature="28:495" placeholder="..." />
+                <marker date="1448647117195" expanded="true" signature="100:483" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -141,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zhishi.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="zhishi.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/zhishi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7683353">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+            <state vertical-scroll-proportion="-4.576271">
+              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
               <folding>
                 <element signature="e#3992#4034#0" expanded="false" />
                 <marker date="1448647203156" expanded="true" signature="2804:2815" placeholder="..." />
@@ -154,12 +94,63 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="baoguangliang.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/baoguangliang.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="peizhi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/peizhi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="52" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zhongkoujing.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/zhongkoujing.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1813063">
+              <caret line="468" column="28" selection-start-line="468" selection-start-column="28" selection-end-line="468" selection-end-column="28" />
+              <folding>
+                <marker date="1448649707583" expanded="true" signature="11136:11145" placeholder="..." />
+                <marker date="1448649707583" expanded="true" signature="14669:14678" placeholder="..." />
+                <marker date="1448649707583" expanded="true" signature="16977:16986" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="banzhuang.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.866667">
+              <caret line="443" column="46" selection-start-line="443" selection-start-column="46" selection-end-line="444" selection-end-column="26" />
+              <folding>
+                <marker date="1448649682697" expanded="true" signature="10283:10292" placeholder="..." />
+                <marker date="1448649682697" expanded="true" signature="13696:13705" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="xiaojinguan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="376" column="7" selection-start-line="376" selection-start-column="7" selection-end-line="378" selection-end-column="10" />
-              <folding />
+            <state vertical-scroll-proportion="-10.366667">
+              <caret line="570" column="26" selection-start-line="570" selection-start-column="26" selection-end-line="570" selection-end-column="26" />
+              <folding>
+                <marker date="1448649693911" expanded="true" signature="12944:12953" placeholder="..." />
+                <marker date="1448649693911" expanded="true" signature="15737:15746" placeholder="..." />
+                <marker date="1448649693911" expanded="true" signature="17969:17978" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -209,7 +200,6 @@
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/tab-gongyi.html" />
         <option value="$PROJECT_DIR$/www/templates/baoguangliang.html" />
-        <option value="$PROJECT_DIR$/www/js/baoguangliang.js" />
         <option value="$PROJECT_DIR$/www/templates/modal/youXiaoJiaoDian.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-lishi.html" />
         <option value="$PROJECT_DIR$/www/templates/modal/search.html" />
@@ -227,14 +217,15 @@
         <option value="$PROJECT_DIR$/www/templates/gongyi/xiaojinguan.html" />
         <option value="$PROJECT_DIR$/www/templates/gongyi/zhongkoujing.html" />
         <option value="$PROJECT_DIR$/www/templates/gongyi/banzhuang.html" />
-        <option value="$PROJECT_DIR$/www/js/banzhuang.js" />
-        <option value="$PROJECT_DIR$/www/js/xiaojinguan.js" />
-        <option value="$PROJECT_DIR$/www/js/zhongkoujing.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/templates/gallery-zoomview.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-zhishi.html" />
         <option value="$PROJECT_DIR$/www/js/zhishi.js" />
+        <option value="$PROJECT_DIR$/www/js/baoguangliang.js" />
+        <option value="$PROJECT_DIR$/www/js/banzhuang.js" />
+        <option value="$PROJECT_DIR$/www/js/xiaojinguan.js" />
+        <option value="$PROJECT_DIR$/www/js/zhongkoujing.js" />
       </list>
     </option>
   </component>
@@ -726,7 +717,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -885,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/baoguangliang.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/ionic/js/angular/angular.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -1025,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/peizhi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.1">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/modal/aboutus.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.125">
@@ -1072,29 +1048,6 @@
             <element signature="n#style#0;n#span#0;n#a#12;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#a#12;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#span#0;n#a#13;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.366667">
-          <caret line="255" column="13" selection-start-line="255" selection-start-column="13" selection-end-line="255" selection-end-column="13" />
-          <folding>
-            <marker date="1448642693511" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1448642693511" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/zhongkoujing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.5">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <marker date="1448642807798" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1448642807798" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1448642807798" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1204,31 +1157,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="376" column="7" selection-start-line="376" selection-start-column="7" selection-end-line="378" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tab-zhishi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.25">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <marker date="1448647117195" expanded="true" signature="28:495" placeholder="..." />
+            <marker date="1448647117195" expanded="true" signature="100:483" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/zhishi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7683353">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+        <state vertical-scroll-proportion="-4.576271">
+          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
           <folding>
             <element signature="e#3992#4034#0" expanded="false" />
             <marker date="1448647203156" expanded="true" signature="2804:2815" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/peizhi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="52" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/baoguangliang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/banzhuang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.866667">
+          <caret line="443" column="46" selection-start-line="443" selection-start-column="46" selection-end-line="444" selection-end-column="26" />
+          <folding>
+            <marker date="1448649682697" expanded="true" signature="10283:10292" placeholder="..." />
+            <marker date="1448649682697" expanded="true" signature="13696:13705" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/xiaojinguan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.366667">
+          <caret line="570" column="26" selection-start-line="570" selection-start-column="26" selection-end-line="570" selection-end-column="26" />
+          <folding>
+            <marker date="1448649693911" expanded="true" signature="12944:12953" placeholder="..." />
+            <marker date="1448649693911" expanded="true" signature="15737:15746" placeholder="..." />
+            <marker date="1448649693911" expanded="true" signature="17969:17978" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/zhongkoujing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1813063">
+          <caret line="468" column="28" selection-start-line="468" selection-start-column="28" selection-end-line="468" selection-end-column="28" />
+          <folding>
+            <marker date="1448649707583" expanded="true" signature="11136:11145" placeholder="..." />
+            <marker date="1448649707583" expanded="true" signature="14669:14678" placeholder="..." />
+            <marker date="1448649707583" expanded="true" signature="16977:16986" placeholder="..." />
           </folding>
         </state>
       </provider>

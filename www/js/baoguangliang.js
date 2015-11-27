@@ -68,6 +68,9 @@ angular.module('starter.controllers')
       } else if ($scope.baoGuangLiang.fangSheYuanType == "Ir192") {
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
+      } else if ($scope.baoGuangLiang.fangSheYuanType == "Co60") {
+        $scope.baoGuangLiang.baoGuangLiang = Math.pow(Math.E,$scope.baoGuangLiang.touZhaoHouDu/20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
+          Math.pow($scope.banZhuang.shiJiJiaoJu, 2) *160;
       }
 
       $scope.baoGuangLiang.baoGuangLiang = Math.round($scope.baoGuangLiang.baoGuangLiang * 10000) / 10000;

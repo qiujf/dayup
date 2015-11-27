@@ -168,6 +168,9 @@ angular.module('starter.controllers')
       } else if (fangSheYuanType.type == "Ir192") {
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
+      }else if(fangSheYuanType.type=="Co60"){
+        $scope.baoGuangLiang.baoGuangLiang = Math.pow(Math.E,$scope.baoGuangLiang.touZhaoHouDu/20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
+          Math.pow($scope.banZhuang.shiJiJiaoJu, 2) *160;
       }
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
 
@@ -277,6 +280,8 @@ angular.module('starter.controllers')
         curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
       } else if (fangSheYuan.type == "Ir192") {
         curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
+      } else if (fangSheYuan.type == "Co60") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 1935);
       }
 
       $scope.banZhuang.yuanQiangDu = Math.round(curPower * 10000) / 10000;
@@ -437,6 +442,7 @@ angular.module('starter.controllers')
 
 
     $scope.onFangSheYuanChange = function () {
+      calcBaoGuangLiang();
       calcYuanQiangDu();
       calcBaoGuangShiJian();
     }

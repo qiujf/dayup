@@ -160,6 +160,9 @@ angular.module('starter.controllers')
       } else if (fangSheYuanType.type == "Ir192") {
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
+      } else if (fangSheYuanType.type == "Co60") {
+        $scope.baoGuangLiang.baoGuangLiang = Math.pow(Math.E, $scope.baoGuangLiang.touZhaoHouDu / 20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
+          Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * 160;
       }
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
 
@@ -225,26 +228,33 @@ angular.module('starter.controllers')
     }
 
     function setFangSheYuanOptions() {
-      var sheXian;
+      var sheXian = [];
       if ($scope.banZhuang.touZhaoDengJi == "A" || $scope.banZhuang.touZhaoDengJi == "AB") {
-        if ($scope.banZhuang.touZhaoHouDu >= 10 && $scope.banZhuang.touZhaoHouDu < 20) {
-          sheXian = "Se75";
-        } else if ($scope.banZhuang.touZhaoHouDu >= 40 && $scope.banZhuang.touZhaoHouDu < 100) {
-          sheXian = "Ir192";
-
-        } else {
-          sheXian = "ALL";
+        if ($scope.banZhuang.touZhaoHouDu >= 10 && $scope.banZhuang.touZhaoHouDu <= 40) {
+          sheXian.splice(0, 0, "Se75");
         }
+
+        if ($scope.banZhuang.touZhaoHouDu >= 20 && $scope.banZhuang.touZhaoHouDu <= 100) {
+          sheXian.splice(0, 0, "Ir192");
+        }
+
+        if ($scope.banZhuang.touZhaoHouDu >= 40 && $scope.banZhuang.touZhaoHouDu <= 200) {
+          sheXian.splice(0, 0, "Co60");
+        }
+
       }
 
       if ($scope.banZhuang.touZhaoDengJi == "B") {
-        if ($scope.banZhuang.touZhaoHouDu >= 14 && $scope.banZhuang.touZhaoHouDu < 20) {
-          sheXian = "Se75";
-        } else if ($scope.banZhuang.touZhaoHouDu >= 40 && $scope.banZhuang.touZhaoHouDu < 90) {
-          sheXian = "Ir192";
+        if ($scope.banZhuang.touZhaoHouDu >= 14 && $scope.banZhuang.touZhaoHouDu <= 40) {
+          sheXian.splice(0, 0, "Se75");
+        }
 
-        } else {
-          sheXian = "ALL";
+        if ($scope.banZhuang.touZhaoHouDu >= 20 && $scope.banZhuang.touZhaoHouDu <= 90) {
+          sheXian.splice(0, 0, "Ir192");
+        }
+
+        if ($scope.banZhuang.touZhaoHouDu >= 60 && $scope.banZhuang.touZhaoHouDu <= 150) {
+          sheXian.splice(0, 0, "Co60");
         }
       }
 
@@ -252,8 +262,8 @@ angular.module('starter.controllers')
       var fangSheYuan = shareService.getFangSheYuan();
       $scope.banZhuang.fangSheYuanList = [];
       for (var i = 0; i < fangSheYuan.length; i++) {
-        if (sheXian == "ALL" || fangSheYuan[i].type == sheXian) {
-          if (fangSheYuan[i].type == "Se75" || fangSheYuan[i].type == "Ir192") {
+        for (var j = 0; j < sheXian.length; j++) {
+          if (sheXian[j] == fangSheYuan[i].type) {
             $scope.banZhuang.fangSheYuanList.splice($scope.banZhuang.fangSheYuanList.length, 0, fangSheYuan[i]);
           }
         }
@@ -289,6 +299,8 @@ angular.module('starter.controllers')
         curPower = fangSheYuan.power * Math.pow(0.5, days / 120);
       } else if (fangSheYuan.type == "Ir192") {
         curPower = fangSheYuan.power * Math.pow(0.5, days / 74);
+      } else if (fangSheYuan.type == "Co60") {
+        curPower = fangSheYuan.power * Math.pow(0.5, days / 1935);
       }
 
       $scope.banZhuang.yuanQiangDu = Math.round(curPower * 10000) / 10000;
@@ -391,8 +403,8 @@ angular.module('starter.controllers')
       }
       calcTouZhaoCiShu();
       calcYiCiTouZhaoChangDu();
-      calcBaoGuangLiang();
       setFangSheYuanOptions();
+      calcBaoGuangLiang();
       calcBaoGuangShiJian();
     }
 
@@ -452,6 +464,7 @@ angular.module('starter.controllers')
 
 
     $scope.onFangSheYuanChange = function () {
+      calcBaoGuangLiang();
       calcYuanQiangDu();
       calcBaoGuangShiJian();
     }
@@ -491,15 +504,15 @@ angular.module('starter.controllers')
       $scope.modal.hide();
       $scope.onBaoGuangLiangChange();
     };
-    //Cleanup the modal when we're done with it!
+//Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function () {
       $scope.modal.remove();
     });
-    // Execute action on hide modal
+// Execute action on hide modal
     $scope.$on('modal.hidden', function () {
       // Execute action
     });
-    // Execute action on remove modal
+// Execute action on remove modal
     $scope.$on('modal.removed', function () {
       // Execute action
     });
@@ -588,5 +601,6 @@ angular.module('starter.controllers')
 
     }
 
-  });
+  })
+;
 
