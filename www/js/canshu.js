@@ -95,9 +95,96 @@ angular.module('starter.controllers')
   })
   .controller('CanShuZuiXiaoJiaoJuCtrl', function ($scope, $ionicPopup, $ionicModal) {
 
+    $scope.jiaoju = {
+      gongJian: "",
+      touZhaoDengji: "",
+      gongChengHouDu: "",
+      waiJing: "",
+      youxiaoJiaoDian: "",
+      zuiXiaoJiaoJu: ""
+    }
+
+    $scope.showWaiJing = false;
+    $scope.showHouDu = false;
+    $scope.setYouXiaoJiaoDianChiCun = function (value) {
+      $scope.jiaoju.youxiaoJiaoDian = value;
+      $scope.calcZuiXiaoJiaoJu();
+    }
+    $scope.onGongJianChange = function () {
+      if ($scope.jiaoju.gongJian == "bz" || $scope.jiaoju.gongJian == "zjg") {
+        $scope.showWaiJing = false;
+        $scope.showHouDu = true;
+      } else if ($scope.jiaoju.gongJian == "xjg") {
+        $scope.showWaiJing = true;
+        $scope.showHouDu = false;
+      }
+
+      $scope.calcZuiXiaoJiaoJu();
+    }
+
+    $scope.calcZuiXiaoJiaoJu = function () {
+      var b;
+      if ($scope.jiaoju.gongJian == "bz" || $scope.jiaoju.gongJian == "zjg") {
+        b = $scope.jiaoju.gongChengHouDu + 2;
+      } else if ($scope.jiaoju.gongJian == "xjg") {
+        b = $scope.jiaoju.waiJing + 2;
+      }
+      var d = $scope.jiaoju.youxiaoJiaoDian;
+      if ($scope.jiaoju.touZhaoDengJi == "A") {
+        $scope.jiaoju.zuiXiaoJiaoJu = b + 7.5 * d * Math.pow(b, 2 / 3);
+      } else if ($scope.jiaoju.touZhaoDengJi == "AB") {
+        $scope.jiaoju.zuiXiaoJiaoJu = b + 10 * d * Math.pow(b, 2 / 3);
+
+      } else if ($scope.jiaoju.touZhaoDengJi == "B") {
+        $scope.jiaoju.zuiXiaoJiaoJu = b + 15 * d * Math.pow(b, 2 / 3);
+      }
+
+      $scope.jiaoju.zuiXiaoJiaoJu = Math.round($scope.jiaoju.zuiXiaoJiaoJu * 100) / 100;
+    }
+
   })
   .controller('CanShuJiHeBuQingXiDuCtrl', function ($scope, $ionicPopup, $ionicModal) {
+    $scope.jihe = {
+      gongJian: "",
+      jiaoJu: "",
+      gongChengHouDu: "",
+      waiJing: "",
+      jiHeBuQingXiDu: ""
+    }
 
+
+    $scope.showWaiJing = false;
+    $scope.showHouDu = false;
+
+    $scope.setYouXiaoJiaoDianChiCun = function (value) {
+      $scope.jihe.youxiaoJiaoDian = value;
+      $scope.calcJiHeBuQingXiDu();
+    }
+    $scope.onGongJianChange = function () {
+      if ($scope.jihe.gongJian == "bz" || $scope.jihe.gongJian == "zjg") {
+        $scope.showWaiJing = false;
+        $scope.showHouDu = true;
+      } else if ($scope.jihe.gongJian == "xjg") {
+        $scope.showWaiJing = true;
+        $scope.showHouDu = false;
+      }
+
+      $scope.calcJiHeBuQingXiDu();
+    }
+
+    $scope.calcJiHeBuQingXiDu = function () {
+      var b;
+      if ($scope.jihe.gongJian == "bz" || $scope.jihe.gongJian == "zjg") {
+        b = $scope.jihe.gongChengHouDu + 2;
+      } else if ($scope.jihe.gongJian == "xjg") {
+        b = $scope.jihe.waiJing + 2;
+      }
+      var d = $scope.jihe.youxiaoJiaoDian;
+      var F = $scope.jihe.jiaoJu;
+
+      $scope.jihe.jiHeBuQingXiDu = (d*b)/(F-b);
+      $scope.jihe.jiHeBuQingXiDu = Math.round($scope.jihe.jiHeBuQingXiDu * 100) / 100;
+    }
   }).
   controller('CanShuTouZhaoHouDuCtrl', function ($scope, $ionicPopup, $ionicModal) {
     $scope.touZhaoHouDu =
@@ -117,6 +204,4 @@ angular.module('starter.controllers')
       }
     }
   }
-
-
 )
