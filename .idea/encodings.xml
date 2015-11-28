@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/www/css/style.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/banzhuang.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/baoguangliang.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/js/canshu.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/controllers.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/history.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/peizhi.js" charset="UTF-8" />
@@ -13,6 +14,10 @@
     <file url="file://$PROJECT_DIR$/www/js/zhishi.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/zhongkoujing.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/lib/ionic/scss/_util.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/templates/canshu/jihebuqingxidu.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/templates/canshu/shexianyuanqiangdu.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/templates/canshu/touzhaohoudu.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/templates/canshu/zuixiaojiaoju.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/gallery-zoomview.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/modal/aboutus.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/modal/editRongQi.html" charset="UTF-8" />

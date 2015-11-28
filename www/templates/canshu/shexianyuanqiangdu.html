@@ -1,0 +1,42 @@
+<ion-view view-title="射线源强度计算">
+
+  <ion-content scroll="true" scrollbar-y="true">
+    <div class="list">
+      <a class="item item-input item-select">
+        <span class="input-label">放射源</span>
+        <select ng-model="fangSheYuan.type" ng-change="calcCurPower()">
+          <option value="Se75">Se75
+          </option>
+          <option value="Ir192">Ir192
+          </option>
+          <option value="Tm170">Tm170
+          </option>
+          <option value="Yb169">Yb169
+          </option>
+          <option value="Co60">Co60
+          </option>
+        </select>
+      </a>
+      <a class="item item-input">
+        <div class="input-label">
+          起始居里日期
+        </div> <div class="item-input-wrapper input-area">
+        <input type="text" class="text-right" ng-model="fangSheYuan.date" ng-blur="checkDate()"> </input></div>
+      </a>
+      <a class="item item-input">
+        <div class="input-label">
+          起始居里强度
+        </div> <div class="item-input-wrapper input-area">
+        <input type="number" class="text-right" ng-model="fangSheYuan.power" ng-blur="calcCurPower()"> </input></div>
+      </a>
+
+      <a class="item item-input">
+        <div class="input-label">
+          居里强度
+        </div> <div class="item-input-wrapper input-area">
+        <input type="number" class="text-right" ng-model="fangSheYuan.curPower" ng-readonly="true"> </input></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

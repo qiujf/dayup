@@ -158,7 +158,43 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
         }
       })
 
+      .state('tab.canshujihebuqiangxidu', {
+        url: '/canshu/jihebuqingxidu',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/jihebuqingxidu.html',
+            controller: 'CanShuJiHeBuQingXiDuCtrl'
+          }
+        }
+      })
 
+      .state('tab.canshushexianyuanqiangdu', {
+        url: '/canshu/shexianyuanqiangdu',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/shexianyuanqiangdu.html',
+            controller: 'CanShuSheXianYuanCtrl'
+          }
+        }
+      })
+      .state('tab.canshutouzhaohoudu', {
+        url: '/canshu/touzhaohoudu',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/touzhaohoudu.html',
+            controller: 'CanShuTouZhaoHouDuCtrl'
+          }
+        }
+      })
+      .state('tab.canshuzuixiaojiaoju', {
+        url: '/canshu/zuixiaojiaoju',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/zuixiaojiaoju.html',
+            controller: 'CanShuZuiXiaoJiaoJuCtrl'
+          }
+        }
+      })
     /*
      以下部分仅供参考，以后删除
      */

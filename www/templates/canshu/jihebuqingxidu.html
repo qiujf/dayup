@@ -1,0 +1,60 @@
+<ion-view view-title="几何不清晰度计算">
+
+  <ion-content scroll="true" scrollbar-y="true">
+    <div class="list">
+      <a class="item item-input item-select">
+        <span style="color:black;font-weight: bold;" class="input-label">
+          工件类型
+        </span>
+        <select ng-model="touZhaoFangShi"
+                ng-change="onTouZhaoDengjiChange()">
+          <option value="bz">板状</option>
+          <option value="xjg">小径管</option>
+          <option value="zjg">中径管</option>
+        </select>
+      </a>
+      <a class="item item-input" ng-show="showWaiJing">
+        <span style="color:black;font-weight: bold;" class="input-label">外径(mm)</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-blur="onGongChengHouDuChange()"
+                 ng-model="waiJing" placeholder="请输入外径"/></div>
+      </a>
+      <a class="item item-input" ng-show="showHouDu">
+        <span style="color:black;font-weight: bold;" class="input-label">公称厚度(mm)</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-blur="onGongChengHouDuChange()"
+                 ng-model="gongChengHouDu" placeholder="请输入公称厚度"/></div>
+      </a>
+      <a class="item item item item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">有效焦点尺寸d(mm)</span>
+
+        <button class="button button-small button-stable" ng-click="setYouXiaoJiaoDianChiCun(2)">2</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="button button-small button-stable" ng-click="setYouXiaoJiaoDianChiCun(2.5)">2.5</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="button button-small button-stable" ng-click="setYouXiaoJiaoDianChiCun(3)">3</button>
+        &nbsp;&nbsp;&nbsp;
+        <label class="item-input-wrapper input-area">
+          <input style=" width:auto; min-width:10%;" type="number" class="small text-right"
+                 ng-model="banZhuang.youXiaoJiaoDianChiCun"
+                 ng-blur="onYouXiaoJiaoDianChiCun()"/>
+        </label>
+      </a>
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">焦距F(mm)</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-blur="onGongChengHouDuChange()"
+                 ng-model="gongChengHouDu" placeholder="请输入公称厚度"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">不清晰度(mm)</span>
+        <input type="number" class="text-right" ng-readonly="true" ng-model="touZhaoHouDu"/>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

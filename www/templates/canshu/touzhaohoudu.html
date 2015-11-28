@@ -1,0 +1,29 @@
+<ion-view view-title="透照厚度计算">
+
+  <ion-content scroll="true" scrollbar-y="true">
+    <div class="list">
+      <a class="item item-input item-select">
+        <span style="color:black;font-weight: bold;" class="input-label">
+          透照方式
+        </span>
+        <select ng-model="touZhaoHouDu.touZhaoFangShi"
+                ng-change="calcTouZhaoHouDu()">
+          <option value="dbtz">单壁透照 </option>
+          <option value="sbtz">双壁透照 </option>
+        </select>
+      </a>
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">公称厚度(mm)</span>
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0"
+                 ng-model="touZhaoHouDu.gongChengHouDu" placeholder="请输入公称厚度" ng-blur="calcTouZhaoHouDu()"></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">透照厚度(mm)</span>
+        <input type="number" class="text-right" ng-readonly="true" ng-model="touZhaoHouDu.touZhaoHouDu"/>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

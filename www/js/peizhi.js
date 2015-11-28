@@ -186,7 +186,23 @@ angular.module('starter.controllers')
 
       if (!rs) {
 
-        alert("请输入正确的日期格式:yyyyMMdd");
+        var myPopup = $ionicPopup.show({
+          template: '<span style="color:red">请输入正确的日期格式:yyyyMMdd</span>',
+          title: '<h3><b>警告</b></h3>',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+
+              }
+            }
+          ]
+        });
+        myPopup.then(function (res) {
+
+        });
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth() + 1; //January is 0!
