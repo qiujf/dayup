@@ -69,7 +69,7 @@ angular.module('starter.controllers')
       date: "",
       power: "",
       curPower: 0
-    }
+    };
 
 
     $scope.data = {
@@ -102,14 +102,14 @@ angular.module('starter.controllers')
 
       $scope.fangSheYuanList.splice($scope.fangSheYuanList.length, 0, item);
 
-    }
+    };
 
     $scope.showTimePicker = function () {
       var options = {date: new Date(), mode: 'time'};
       $cordovaDatePicker.show(options).then(function (date) {
         $scope.timeFieldInModel = date;
       });
-    }
+    };
 
     $scope.editRongQi = function(index){
       $scope.idx = index;
@@ -140,7 +140,7 @@ angular.module('starter.controllers')
           saveFangSheYuan();
         }
       })
-    }
+    };
 
     $ionicModal.fromTemplateUrl('templates/peizhi/xinzengfangsheyuan.html', {
       scope: $scope,
@@ -220,7 +220,7 @@ angular.module('starter.controllers')
 
 
       }
-    }
+    };
 
     $scope.closeModal = function () {
 
@@ -275,7 +275,7 @@ angular.module('starter.controllers')
         saveFangSheYuan();
       })
 
-    }
+    };
     $scope.showSoftware = function () {
 
       var myPopup = $ionicPopup.show({

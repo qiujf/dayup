@@ -95,6 +95,10 @@
                ng-model="banZhuang.shiJiJiaoJu" placeholder="请输入实际焦距"/>
           </div>
       </a>
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">平移距离(mm)</span>
+        <input type="number" class="text-right" ng-readonly="true" ng-model="banZhuang.pingYiJuLi"/>
+      </a>
       <a class="item item-input item-select">
         <span style="color:black;font-weight: bold;" class="input-label">放射源</span>
         <select ng-model="banZhuang.fangSheYuan" ng-init="" ng-change="onFangSheYuanChange()">

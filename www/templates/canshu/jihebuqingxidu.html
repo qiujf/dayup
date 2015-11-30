@@ -18,14 +18,14 @@
         <span style="color:black;font-weight: bold;" class="input-label">外径(mm)</span>
 
         <div class="item-input-wrapper input-area">
-          <input type="number" class="text-right " min="0" ng-blur="calcZuiXiaoJiaoJu()"
+          <input type="number" class="text-right " min="0" ng-change="calcJiHeBuQingXiDu()"
                  ng-model="jihe.waiJing" placeholder="请输入外径"/></div>
       </a>
       <a class="item item-input" ng-show="showHouDu">
         <span style="color:black;font-weight: bold;" class="input-label">公称厚度(mm)</span>
 
         <div class="item-input-wrapper input-area">
-          <input type="number" class="text-right " min="0" ng-blur="calcZuiXiaoJiaoJu()"
+          <input type="number" class="text-right " min="0" ng-change="calcJiHeBuQingXiDu()"
                  ng-model="jihe.gongChengHouDu" placeholder="请输入公称厚度"/></div>
       </a>
       <a class="item item item item item-input">
@@ -40,19 +40,19 @@
         <label class="item-input-wrapper input-area">
           <input style=" width:auto; min-width:10%;" type="number" class="small text-right"
                  ng-model="jihe.youxiaoJiaoDian"
-                 ng-blur="calcJiHeBuQingXiDu()"/>
+                 ng-change="calcJiHeBuQingXiDu()"/>
         </label>
       </a>
       <a class="item item-input">
         <span style="color:black;font-weight: bold;" class="input-label">焦距F(mm)</span>
 
         <div class="item-input-wrapper input-area">
-          <input type="number" class="text-right " min="0" ng-blur="calcJiHeBuQingXiDu()"
+          <input type="number" class="text-right " min="0" ng-change="calcJiHeBuQingXiDu()"
                  ng-model="jihe.jiaoJu" placeholder="请输入焦距"/></div>
       </a>
 
       <a class="item item-input">
-        <span style="color:black;font-weight: bold;" class="input-label">不清晰度(mm)</span>
+        <span style="color:black;font-weight: bold;" class="input-label">不清晰度</span>
         <input type="number" class="text-right" ng-readonly="true" ng-model="jihe.jiHeBuQingXiDu  "/>
       </a>
 

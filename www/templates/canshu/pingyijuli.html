@@ -1,0 +1,39 @@
+<ion-view view-title="平移距离计算">
+
+  <ion-content scroll="true" scrollbar-y="true">
+    <div class="list">
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">外径</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcPingYiJuLi()"
+                 ng-model="pingyi.waiJing" placeholder="请输入外径"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">焊缝宽度</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcPingYiJuLi()"
+                 ng-model="pingyi.hanFengKuanDu" placeholder="请输入焊缝宽度"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">实际焦距</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcPingYiJuLi()"
+                 ng-model="pingyi.shiJiJiaoJu" placeholder="请输入实际焦距"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">平移距离</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0"
+                 ng-model="pingyi.pingYiJuLi" ng-readonly="true"/></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

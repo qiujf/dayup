@@ -90,13 +90,37 @@ angular.module('starter.controllers')
     type:"img",
     src: 'img/xzjyc.png'
   },{
-    name:"线性像质计灵敏度(表)（双壁透照，源侧）",
+    name:"线性像质计灵敏度(表)（双壁双影，源侧）",
     type:"img",
     src: 'img/xzjsxc.png'
   },{
-    name:"线性像质计灵敏度(表)（双壁透照，胶片侧）",
+    name:"线性像质计灵敏度(表)（双壁单/双影，胶片侧）",
     type:"img",
     src: 'img/xzjjpc.png'
+  },{
+    name:"源在外单壁透照环向焊接接头,K=1.06,透照次数",
+    type:"img",
+    src: 'img/tzcs1.png'
+  },{
+    name:"其他方式透照环向焊接接头,K=1.06,透照次数",
+    type:"img",
+    src: 'img/tzcs2.png'
+  },{
+    name:"源在外单壁透照环向焊接接,K=1.1,透照次数",
+    type:"img",
+    src: 'img/tzcs3.png'
+  },{
+    name:"其他方式透照环向焊接接头,K=1.1,透照次数",
+    type:"img",
+    src: 'img/tzcs4.png'
+  },{
+    name:"源在外单壁透照环向焊接接头,K=1.2,透照次数",
+    type:"img",
+    src: 'img/tzcs5.png'
+  },{
+    name:"其他方式透照环向焊接接头,K=1.2,透照次数",
+    type:"img",
+    src: 'img/tzcs6.png'
   }];
 
   $scope.zoomMin = 1;
@@ -137,7 +161,7 @@ angular.module('starter.controllers')
         $scope.modal = modal;
         $scope.modal.show();
       });
-    }
+    };
 
     $scope.closeModal = function() {
       $scope.modal.hide();
@@ -145,12 +169,12 @@ angular.module('starter.controllers')
     };
 
     $scope.updateSlideStatus = function(slide) {
-      var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
-      if (zoomFactor == $scope.zoomMin) {
-        $ionicSlideBoxDelegate.enableSlide(true);
-      } else {
-        $ionicSlideBoxDelegate.enableSlide(false);
-      }
+      //var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+      //if (zoomFactor == $scope.zoomMin) {
+      //  $ionicSlideBoxDelegate.enableSlide(true);
+      //} else {
+      //  $ionicSlideBoxDelegate.enableSlide(false);
+      //}
     };
 
 });/**

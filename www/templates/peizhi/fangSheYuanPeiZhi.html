@@ -43,13 +43,14 @@
         </div>
 
         <div class="row">
-          <p><b>起始居里日期</b>：&nbsp;&nbsp;&nbsp; {{ item.date}}</p>
+          <p><b>起始居里日期</b>：&nbsp; {{ item.date}}</p>
         </div>
         <div class="row">
-          <p><b>起始居里强度：</b>&nbsp;&nbsp;&nbsp; {{ item.power}}</p>
+          <p><b>起始居里强度：</b>&nbsp; {{ item.power}}</p>
         </div>
         <div class="row">
-          <p><b>当前居里强度：</b>&nbsp;&nbsp;&nbsp; {{item.curPower}}</p>
+          <div class="item-text-wrapper">
+          <p><b>当前居里强度：</b>&nbsp; {{item.curPower.toString()}}&nbsp; </p></div>
         </div>
         <ion-delete-button class="ion-minus-circled"
                            ng-click="onItemDelete(item)">

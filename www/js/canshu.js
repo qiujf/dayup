@@ -5,18 +5,32 @@ angular.module('starter.controllers')
 
   .controller('CanShuSheXianYuanCtrl', function ($scope, $ionicPopup) {
     $scope.fangSheYuan = {
-
       type: "",
-
       date: "",
       power: "",
       curPower: 0
+    };
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
     }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+
+
+    $scope.fangSheYuan.date = yyyy.toString() + mm.toString() + dd.toString();
+
 
     $scope.calcCurPower = function () {
       $scope.fangSheYuan.curPower = getCurPower($scope.fangSheYuan.type, $scope.fangSheYuan.date, $scope.fangSheYuan.power);
 
-    }
+    };
 
     function getCurPower(type, startDate, startPower) {
       var dateLiteral = startDate;
@@ -102,14 +116,14 @@ angular.module('starter.controllers')
       waiJing: "",
       youxiaoJiaoDian: "",
       zuiXiaoJiaoJu: ""
-    }
+    };
 
     $scope.showWaiJing = false;
     $scope.showHouDu = false;
     $scope.setYouXiaoJiaoDianChiCun = function (value) {
       $scope.jiaoju.youxiaoJiaoDian = value;
       $scope.calcZuiXiaoJiaoJu();
-    }
+    };
     $scope.onGongJianChange = function () {
       if ($scope.jiaoju.gongJian == "bz" || $scope.jiaoju.gongJian == "zjg") {
         $scope.showWaiJing = false;
@@ -120,7 +134,7 @@ angular.module('starter.controllers')
       }
 
       $scope.calcZuiXiaoJiaoJu();
-    }
+    };
 
     $scope.calcZuiXiaoJiaoJu = function () {
       var b;
@@ -134,7 +148,6 @@ angular.module('starter.controllers')
         $scope.jiaoju.zuiXiaoJiaoJu = b + 7.5 * d * Math.pow(b, 2 / 3);
       } else if ($scope.jiaoju.touZhaoDengJi == "AB") {
         $scope.jiaoju.zuiXiaoJiaoJu = b + 10 * d * Math.pow(b, 2 / 3);
-
       } else if ($scope.jiaoju.touZhaoDengJi == "B") {
         $scope.jiaoju.zuiXiaoJiaoJu = b + 15 * d * Math.pow(b, 2 / 3);
       }
@@ -150,7 +163,7 @@ angular.module('starter.controllers')
       gongChengHouDu: "",
       waiJing: "",
       jiHeBuQingXiDu: ""
-    }
+    };
 
 
     $scope.showWaiJing = false;
@@ -159,7 +172,7 @@ angular.module('starter.controllers')
     $scope.setYouXiaoJiaoDianChiCun = function (value) {
       $scope.jihe.youxiaoJiaoDian = value;
       $scope.calcJiHeBuQingXiDu();
-    }
+    };
     $scope.onGongJianChange = function () {
       if ($scope.jihe.gongJian == "bz" || $scope.jihe.gongJian == "zjg") {
         $scope.showWaiJing = false;
@@ -170,7 +183,7 @@ angular.module('starter.controllers')
       }
 
       $scope.calcJiHeBuQingXiDu();
-    }
+    };
 
     $scope.calcJiHeBuQingXiDu = function () {
       var b;
@@ -183,7 +196,7 @@ angular.module('starter.controllers')
       var F = $scope.jihe.jiaoJu;
 
       $scope.jihe.jiHeBuQingXiDu = (d*b)/(F-b);
-      $scope.jihe.jiHeBuQingXiDu = Math.round($scope.jihe.jiHeBuQingXiDu * 100) / 100;
+      $scope.jihe.jiHeBuQingXiDu = Math.round($scope.jihe.jiHeBuQingXiDu * 10000) / 10000;
     }
   }).
   controller('CanShuTouZhaoHouDuCtrl', function ($scope, $ionicPopup, $ionicModal) {
@@ -192,7 +205,7 @@ angular.module('starter.controllers')
       touZhaoHouDu: "",
       gongChengHouDu: "",
       touZhaoFangShi: ""
-    }
+    };
     $scope.calcTouZhaoHouDu = function () {
 
       if ($scope.touZhaoHouDu.touZhaoFangShi == "dbtz") {
@@ -204,4 +217,35 @@ angular.module('starter.controllers')
       }
     }
   }
-)
+  )
+    .controller('CanShuHuYiDingLvCtrl', function ($scope, $ionicPopup, $ionicModal) {
+      $scope.huyi =
+      {
+        yuanBaoGuang: "",
+        xianBaoGuang: "",
+        yuanJiaoJu: "",
+        xianJiaoJu:""
+      };
+      $scope.calcHuYi = function () {
+
+        $scope.huyi.xianBaoGuang = $scope.huyi.yuanBaoGuang*Math.pow($scope.huyi.xianJiaoJu,2)/Math.pow($scope.huyi.yuanJiaoJu,2);
+      }
+    }
+  )
+  .controller('CanShuPingYiJuLiCtrl', function ($scope, $ionicPopup, $ionicModal) {
+    $scope.pingyi =
+    {
+      waiJing: "",
+      hanFengKuanDu: "",
+      shiJiJiaoJu: "",
+      pingYiJuLi:""
+    };
+    $scope.calcPingYiJuLi = function () {
+
+      $scope.pingyi.pingYiJuLi = ($scope.pingyi.shiJiJiaoJu-($scope.pingyi.waiJing+2))/(($scope.pingyi.waiJing+2)*($scope.pingyi.hanFengKuanDu+10));
+
+      $scope.pingyi.pingYiJuLi = Math.round( $scope.pingyi.pingYiJuLi*1000)/1000;
+
+    }
+  }
+);

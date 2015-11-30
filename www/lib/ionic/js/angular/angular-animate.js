@@ -27,7 +27,7 @@
 
   var isPromiseLike = function (p) {
     return p && p.then ? true : false;
-  }
+  };
 
   function assertArg(arg, name, reason) {
     if (!arg) {

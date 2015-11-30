@@ -59,7 +59,7 @@ angular.module('starter.services', [])
       jiaoJuanXingHao:"",
       jiaoPianXiuZhengXiShu:0,
       baoGuangLiang:0
-    }
+    };
 
     var fangSheYuanList;
 
@@ -74,7 +74,7 @@ angular.module('starter.services', [])
 
     this.getFangSheYuan = function() {
       return fangSheYuanList;
-    }
+    };
     this.setFangSheYuan = function (fangSheYuan) {
       fangSheYuanList = fangSheYuan;
     }
@@ -95,15 +95,15 @@ angular.module('starter.services', [])
       historyList = list;
       var temp = angular.toJson(historyList);
       window.localStorage.setItem('history', temp);
-    }
+    };
 
     this.getItem = function (index) {
       return historyList[index];
-    }
+    };
 
     this.getHistoryList = function () {
       return historyList;
-    }
+    };
     this.save = function (item) {
       var isNew = true;
       for (var i = 0; i < historyList.length; i++) {

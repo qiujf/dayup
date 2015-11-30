@@ -41,7 +41,7 @@ angular.module('starter.controllers')
         type: "all",
         gongChengHouDu: "",
         waiJing: ""
-      }
+      };
 
       var myPopup = $ionicPopup.show({
         templateUrl: "templates/modal/search.html",
@@ -60,7 +60,7 @@ angular.module('starter.controllers')
       myPopup.then(function (res) {
         search(res);
       })
-    }
+    };
 
     function search(res) {
 

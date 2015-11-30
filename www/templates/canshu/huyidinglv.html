@@ -1,0 +1,39 @@
+<ion-view view-title="互易定律计算">
+
+  <ion-content scroll="true" scrollbar-y="true">
+    <div class="list">
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">原曝光时间</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcHuYi()"
+                 ng-model="huyi.yuanBaoGuang" placeholder="请输入原曝光时间"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">原焦距</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcHuYi()"
+                 ng-model="huyi.yuanJiaoJu" placeholder="请输入原焦距"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">现焦距</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0" ng-change="calcHuYi()"
+                 ng-model="huyi.xianJiaoJu" placeholder="请输入现焦距"/></div>
+      </a>
+
+      <a class="item item-input">
+        <span style="color:black;font-weight: bold;" class="input-label">现焦距</span>
+
+        <div class="item-input-wrapper input-area">
+          <input type="number" class="text-right " min="0"
+                 ng-model="huyi.xianBaoGuang" ng-readonly="true"/></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

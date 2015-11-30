@@ -1,10 +1,15 @@
-<div class="modal image-modal transparent" on-swipe-down="closeModal()">
 
+<div class="modal image-modal transparent" style="z-index:10" on-swipe-down="closeModal()">
+  <div class="row">
+    <div class="item-button-right">
+      <button class="button button-small button-positive" style="z-index:11" ng-click="closeModal()" >关闭</button>
+    </div>
+  </div>
 
 
       <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false"
                   zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%"
-                  delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                   on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
 
         <div class="image" style="background-image: url( {{imagesrc}} )"></div>
 

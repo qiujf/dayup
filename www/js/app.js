@@ -195,6 +195,24 @@ var myapp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.
           }
         }
       })
+      .state('tab.canshuhuyidinglv', {
+        url: '/canshu/huyidinglv',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/huyidinglv.html',
+            controller: 'CanShuHuYiDingLvCtrl'
+          }
+        }
+      })
+      .state('tab.canshupingyijuli', {
+        url: '/canshu/pingyijuli',
+        views: {
+          'tab-canshu': {
+            templateUrl: 'templates/canshu/pingyijuli.html',
+            controller: 'CanShuPingYiJuLiCtrl'
+          }
+        }
+      });
     /*
      以下部分仅供参考，以后删除
      */
