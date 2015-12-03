@@ -69,8 +69,8 @@ angular.module('starter.controllers')
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       } else if ($scope.baoGuangLiang.fangSheYuanType == "Co60") {
-        $scope.baoGuangLiang.baoGuangLiang = Math.pow(Math.E,$scope.baoGuangLiang.touZhaoHouDu/20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
-          Math.pow($scope.banZhuang.shiJiJiaoJu, 2) *0.16;
+        $scope.baoGuangLiang.baoGuangLiang = 0.5*Math.pow(Math.E,$scope.baoGuangLiang.touZhaoHouDu/20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
+          Math.pow($scope.banZhuang.shiJiJiaoJu/1000, 2) *160;
       }
 
       $scope.baoGuangLiang.baoGuangLiang = Math.round($scope.baoGuangLiang.baoGuangLiang * 10000) / 10000;

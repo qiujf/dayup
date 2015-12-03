@@ -16,8 +16,8 @@ angular.module('starter.controllers')
       $scope.id = item.id;
       $scope.banZhuang = item.banZhuang;
       $scope.baoGuangLiang = item.baoGuangLiang;
-      //$scope.enableSaving = false;
       calcYuanQiangDu();
+      setFangSheYuanOptions(false);
       calcBaoGuangShiJian();
     } else {
       $scope.id = (new Date()).getTime();
@@ -223,8 +223,8 @@ angular.module('starter.controllers')
         $scope.baoGuangLiang.baoGuangLiang = 0.0000738 * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
           Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * Math.pow(1.77, $scope.banZhuang.touZhaoHouDu / 10);
       } else if (fangSheYuanType.type == "Co60") {
-        $scope.baoGuangLiang.baoGuangLiang = Math.pow(Math.E, $scope.baoGuangLiang.touZhaoHouDu / 20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
-          Math.pow($scope.banZhuang.shiJiJiaoJu, 2) * 0.160;
+        $scope.baoGuangLiang.baoGuangLiang = 0.5*Math.pow(Math.E,$scope.baoGuangLiang.touZhaoHouDu/20) * $scope.baoGuangLiang.jiaoPianXiuZhengXiShu *
+        Math.pow($scope.banZhuang.shiJiJiaoJu/1000, 2) *160;
       }
       $scope.banZhuang.baoGuangLiang = $scope.baoGuangLiang.baoGuangLiang;
 
@@ -290,7 +290,7 @@ angular.module('starter.controllers')
       }
     }
 
-    function setFangSheYuanOptions() {
+    function setFangSheYuanOptions(restDataFlag) {
       var sheXian = [];
       if ($scope.banZhuang.touZhaoDengJi == "A" || $scope.banZhuang.touZhaoDengJi == "AB") {
         if ($scope.banZhuang.touZhaoHouDu >= 10 && $scope.banZhuang.touZhaoHouDu <= 40) {
@@ -333,14 +333,17 @@ angular.module('starter.controllers')
       }
 
 
-      $scope.banZhuang.fangSheYuan = -1;
-      $scope.banZhuang.yuanQiangDu = 0;
-      $scope.banZhuang.baoGuangShiJian = 0;
+      if(restDataFlag) {
+
+        $scope.banZhuang.fangSheYuan = -1;
+        $scope.banZhuang.yuanQiangDu = 0;
+        $scope.banZhuang.baoGuangShiJian = 0;
+      }
     }
 
     function calcPingYiJuLi() {
       if ($scope.banZhuang.touZhaoFangShi_Sub == "双壁双影倾斜") {
-        $scope.banZhuang.pingYiJuLi = ($scope.banZhuang.shiJiJiaoJu - ($scope.banZhuang.waijing + 2)) / (($scope.banZhuang.waijing + 2) * ($scope.banZhuang.hanFengHouDu + 10));
+        $scope.banZhuang.pingYiJuLi = ($scope.banZhuang.shiJiJiaoJu - ($scope.banZhuang.waijing + 2))/ ($scope.banZhuang.waijing + 2) * ($scope.banZhuang.hanFengHouDu + 10);
         $scope.banZhuang.pingYiJuLi = Math.round( $scope.banZhuang.pingYiJuLi *100)/100;
       } else {
         $scope.banZhuang.pingYiJuLi = 0;
@@ -477,7 +480,7 @@ angular.module('starter.controllers')
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
       calcYiCiTouZhaoChangDu();
-      setFangSheYuanOptions();
+      setFangSheYuanOptions(true);
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     };
@@ -516,7 +519,7 @@ angular.module('starter.controllers')
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
       calcYiCiTouZhaoChangDu();
-      setFangSheYuanOptions();
+      setFangSheYuanOptions(true);
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     };
@@ -532,7 +535,7 @@ angular.module('starter.controllers')
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
       calcYiCiTouZhaoChangDu();
-      setFangSheYuanOptions();
+      setFangSheYuanOptions(true);
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     };
@@ -545,7 +548,7 @@ angular.module('starter.controllers')
         $scope.banZhuang.shiJiJiaoJu = $scope.banZhuang.zuiXiaoJiaoJu;
       }
       calcYiCiTouZhaoChangDu();
-      setFangSheYuanOptions();
+      setFangSheYuanOptions(true);
       calcBaoGuangLiang();
       calcBaoGuangShiJian();
     };

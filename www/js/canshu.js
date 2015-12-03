@@ -242,7 +242,7 @@ angular.module('starter.controllers')
     };
     $scope.calcPingYiJuLi = function () {
 
-      $scope.pingyi.pingYiJuLi = ($scope.pingyi.shiJiJiaoJu-($scope.pingyi.waiJing+2))/(($scope.pingyi.waiJing+2)*($scope.pingyi.hanFengKuanDu+10));
+      $scope.pingyi.pingYiJuLi = ($scope.pingyi.shiJiJiaoJu-($scope.pingyi.waiJing+2))/($scope.pingyi.waiJing+2)*($scope.pingyi.hanFengKuanDu+10);
 
       $scope.pingyi.pingYiJuLi = Math.round( $scope.pingyi.pingYiJuLi*1000)/1000;
 
