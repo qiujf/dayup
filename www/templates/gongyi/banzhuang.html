@@ -26,6 +26,8 @@
         </span>
         <select ng-model="banZhuang.touZhaoDengJi" ng-init="banZhuang.touZhaoDengJi='A'"
                 ng-change="onTouZhaoDengjiChange()">
+          <select ng-model="banZhuang.touZhaoDengJi"
+                  ng-change="onTouZhaoDengjiChange()">
           <option ng-repeat="touZhaoDengJi in banZhuangOpt.touZhaoDengJi" value="{{touZhaoDengJi.value}}">
             {{touZhaoDengJi.name}}
           </option>
