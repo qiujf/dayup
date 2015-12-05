@@ -48,7 +48,7 @@
         </span>
         <select ng-model="banZhuang.touZhaoDengJi" ng-init="banZhuang.touZhaoDengJi='A'"
                 ng-change="onTouZhaoDengjiChange()">
-          <option ng-repeat="touZhaoDengJi in banZhuangOpt.touZhaoDengJi" value="{{touZhaoDengJi.value}}">
+          <option ng-repeat="touZhaoDengJi in banZhuangOpt.touZhaoDengJi" value="{{touZhaoDengJi.value}}" ng-selected="touZhaoDengJi.value==banZhuang.touZhaoDengJi">
             {{touZhaoDengJi.name}}
           </option>
         </select>
@@ -102,7 +102,7 @@
       <a class="item item-input item-select">
         <span style="color:black;font-weight: bold;" class="input-label">放射源</span>
         <select ng-model="banZhuang.fangSheYuan" ng-init="" ng-change="onFangSheYuanChange()">
-          <option ng-repeat="fangsheYuan in banZhuang.fangSheYuanList" value="{{$index}}">
+          <option ng-repeat="fangsheYuan in banZhuang.fangSheYuanList" value="{{$index}}"  ng-selected="$index==banZhuang.fangSheYuan">
             {{fangsheYuan.type}}|容器{{fangsheYuan.rongQi}}|{{fangsheYuan.date}}
           </option>
         </select>

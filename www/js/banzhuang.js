@@ -7,11 +7,24 @@ angular.module('starter.controllers')
   .controller('BanzhuangCtrl', function ($scope, $stateParams, $ionicPopup, $ionicModal, shareService, historyService) {
 
     $scope.enableSaving = true;
+
+    //透照方式Option
+    $scope.banZhuangOpt = {
+      touZhaoFangShi: [{selected: true, name: "单壁单影", value: "DBDY"}],
+      touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
+        selected: false,
+        name: "AB",
+        value: "AB"
+      }, {selected: false, name: "B", value: "B"}]
+
+    };
     //初始化
     var historyId = $stateParams.id;
     if (historyId != null) {
       var item = historyService.getItem(historyId);
 
+
+      console.log(item);
       $scope.id = item.id;
       $scope.banZhuang = item.banZhuang;
       $scope.baoGuangLiang = item.baoGuangLiang;
@@ -48,7 +61,10 @@ angular.module('starter.controllers')
         touZhaoHouDu: "",
         fangSheYuanType: "",
         jiaoJuanPinPai: "",
+        jiaoJuanPinPaiIdx:-1,
+        jiaoJuanXingHaoList: [],
         jiaoJuanXingHao: "",
+        jiaoJuanXingHaoIdx:-1,
         jiaoPianXiuZhengXiShuDefault: "",
         jiaoPianXiuZhengXiShu: "",
         baoGuangLiang: "",
@@ -56,16 +72,7 @@ angular.module('starter.controllers')
       }
     }
 
-    //透照方式Option
-    $scope.banZhuangOpt = {
-      touZhaoFangShi: [{selected: true, name: "单壁单影", value: "DBDY"}],
-      touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
-        selected: false,
-        name: "AB",
-        value: "AB"
-      }, {selected: false, name: "B", value: "B"}]
 
-    };
 
     $scope.xiangZhiJi = {
       A: [
@@ -339,6 +346,28 @@ angular.module('starter.controllers')
      */
 
     $scope.save = function () {
+      if($scope.banZhuang.baoGuangShiJian<=0){
+        var myPopup = $ionicPopup.show({
+          template: '',
+          title: '<h5><b>请完整输入参数</b></h5>',
+          scope: $scope,
+          buttons: [
+            {
+              text: '<b>确定</b>',
+              type: 'button-positive',
+              onTap: function (e) {
+
+              }
+            }
+          ]
+        });
+        myPopup.then(function (res) {
+
+        })
+
+        return;
+      }
+
       var item = {};
       item.id = $scope.id;
 

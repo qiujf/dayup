@@ -32,8 +32,8 @@
           胶片品牌
         </div>
 
-        <select ng-model="baoGuangLiang.jiaoJuanPinPai" ng-change="onChangeJiaoPianPinPai()">
-          <option ng-repeat="jiaoPian in baoGuangOpt.jiaoPian" value="{{jiaoPian.value}}">{{jiaoPian.name}}</option>
+        <select ng-model="baoGuangLiang.jiaoJuanPinPaiIdx" ng-change="onChangeJiaoPianPinPai()">
+          <option ng-repeat="jiaoPian in baoGuangOpt.jiaoPian" value="{{$index}}" ng-selected="$index==baoGuangLiang.jiaoJuanPinPaiIdx">{{jiaoPian.name}}</option>
         </select>
 
       </a>
@@ -41,8 +41,8 @@
         <div class="input-label">
           胶片型号
         </div>
-        <select ng-model="baoGuangLiang.jiaoPianXiuZhengXiShuDefault" ng-init="" ng-change="onJiaoPianXingHaoChange()">
-          <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{jiaoPianXingHao.xzxs}}">
+        <select ng-model="baoGuangLiang.jiaoJuanXingHaoIdx" ng-init="" ng-change="onJiaoPianXingHaoChange()">
+          <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{$index}}" ng-selected="$index==baoGuangLiang.jiaoJuanXingHaoIdx">
             {{jiaoPianXingHao.name}}
           </option>
         </select>

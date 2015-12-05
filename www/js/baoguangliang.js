@@ -85,7 +85,7 @@ angular.module('starter.controllers')
      }*/
 
     $scope.onJiaoPianXingHaoChange = function () {
-      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = Number($scope.baoGuangLiang.jiaoPianXiuZhengXiShuDefault);
+      $scope.baoGuangLiang.jiaoPianXiuZhengXiShu = Number($scope.baoGuangLiang.jiaoJuanXingHaoList[$scope.baoGuangLiang.jiaoJuanXingHaoIdx].xzxs);
       calcBaoGuangLiang();
     };
 
@@ -94,13 +94,15 @@ angular.module('starter.controllers')
     };
 
     $scope.onChangeJiaoPianPinPai = function () {
+      $scope.baoGuangLiang.jiaoJuanPinPai = $scope.baoGuangOpt.jiaoPian[$scope.baoGuangLiang.jiaoJuanPinPaiIdx].value;
       if ($scope.baoGuangLiang.jiaoJuanPinPai == "FS") {
-        $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.FS;
       } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "KD") {
         $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.KD;
       } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "AGFA") {
         $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
       }
+
+      $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.selected;
     };
 
     $scope.onChangeSource = function () {
