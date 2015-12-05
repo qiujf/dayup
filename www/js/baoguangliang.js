@@ -29,7 +29,7 @@ angular.module('starter.controllers')
       ],
 
       jiaoPianXingHao: {
-        selected: null,
+       // selected: null,
         FS: [
           {selected: true, name: "富士80", value: "FS80", xzxs: 4.0},
           {selected: true, name: "富士100", value: "FS100", xzxs: 2.0}
@@ -52,11 +52,11 @@ angular.module('starter.controllers')
     };
 
     if ($scope.baoGuangLiang.jiaoJuanPinPai == "FS") {
-      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.FS;
+      $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.FS;
     } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "KD") {
-      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.KD;
+      $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.KD;
     } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "AGFA") {
-      $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
+      $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
     }
 
     //Business Logics
@@ -96,13 +96,14 @@ angular.module('starter.controllers')
     $scope.onChangeJiaoPianPinPai = function () {
       $scope.baoGuangLiang.jiaoJuanPinPai = $scope.baoGuangOpt.jiaoPian[$scope.baoGuangLiang.jiaoJuanPinPaiIdx].value;
       if ($scope.baoGuangLiang.jiaoJuanPinPai == "FS") {
+        $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.banZhuangOpt.jiaoPianXingHao.FS;
       } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "KD") {
-        $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.KD;
+        $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.KD;
       } else if ($scope.baoGuangLiang.jiaoJuanPinPai == "AGFA") {
-        $scope.baoGuangOpt.jiaoPianXingHao.selected = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
+        $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.AGFA;
       }
 
-      $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.selected;
+     // $scope.baoGuangLiang.jiaoJuanXingHaoList = $scope.baoGuangOpt.jiaoPianXingHao.selected;
     };
 
     $scope.onChangeSource = function () {

@@ -87,6 +87,8 @@ angular.module('starter.services', [])
     var historyListLiteral = window.localStorage.getItem('history');
     if (historyListLiteral != null) {
       historyList = angular.fromJson(historyListLiteral);
+      console.log("get history");
+      console.log(historyList);
     } else {
       historyList = [];
     }
@@ -116,6 +118,9 @@ angular.module('starter.services', [])
         historyList.splice(historyList.length, 0, item);
       }
       var temp = angular.toJson(historyList);
+
+      console.log(historyList);
+      console.log("set history");
       window.localStorage.setItem('history', temp);
     }
 

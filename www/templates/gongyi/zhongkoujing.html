@@ -33,7 +33,7 @@
         <span style="color:black;font-weight: bold;" class="input-label">
           透照等级
         </span>
-        <select ng-model="banZhuang.touZhaoDengJi" ng-init="banZhuang.touZhaoDengJi='A'"
+        <select ng-model="banZhuang.touZhaoDengJi"
                 ng-change="onTouZhaoDengjiChange()">
           <option ng-repeat="touZhaoDengJi in banZhuangOpt.touZhaoDengJi" value="{{touZhaoDengJi.value}}" ng-selected="touZhaoDengJi.value==banZhuang.touZhaoDengJi">
             {{touZhaoDengJi.name}}

@@ -42,7 +42,7 @@
           胶片型号
         </div>
         <select ng-model="baoGuangLiang.jiaoJuanXingHaoIdx" ng-init="" ng-change="onJiaoPianXingHaoChange()">
-          <option ng-repeat="jiaoPianXingHao in baoGuangOpt.jiaoPianXingHao.selected" value="{{$index}}" ng-selected="$index==baoGuangLiang.jiaoJuanXingHaoIdx">
+          <option ng-repeat="jiaoPianXingHao in baoGuangLiang.jiaoJuanXingHaoList" value="{{$index}}" ng-selected="$index==baoGuangLiang.jiaoJuanXingHaoIdx">
             {{jiaoPianXingHao.name}}
           </option>
         </select>

@@ -6,6 +6,18 @@ angular.module('starter.controllers')
 
   .controller('ZhongKouJingCtrl', function ($scope, $stateParams, $ionicPopup, $ionicModal, shareService, historyService) {
 
+    //透照方式Option
+    $scope.banZhuangOpt = {
+      touZhaoFangShi: [{selected: true, name: "双壁单影", value: "SBDY"}],
+      touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
+        selected: false,
+        name: "AB",
+        value: "AB"
+      }, {selected: false, name: "B", value: "B"}]
+
+    };
+
+
     $scope.enableSaving = true;
     $scope.operationable = true;
     //初始化
@@ -57,16 +69,6 @@ angular.module('starter.controllers')
         baoGuangLiang: ""
       }
     }
-    //透照方式Option
-    $scope.banZhuangOpt = {
-      touZhaoFangShi: [{selected: true, name: "双壁单影", value: "SBDY"}],
-      touZhaoDengJi: [{selected: true, name: "A", value: "A"}, {
-        selected: false,
-        name: "AB",
-        value: "AB"
-      }, {selected: false, name: "B", value: "B"}]
-
-    };
 
 
     $scope.xiangZhiJi = {
