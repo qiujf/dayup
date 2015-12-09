@@ -91,7 +91,7 @@
       <a class="item item-input">
         <span style="color:black;font-weight: bold;" class="input-label">实际焦距(mm)</span>
         <div class="item-input-wrapper input-area">
-        <input type="number" class="text-right" min="0" ng-blur="onShiJiJiaoJuChange()"
+        <input type="number" class="text-right" min="0" ng-change="onShiJiJiaoJuChange()" ng-blur="onShiJiJiaoJuBlur()"
                ng-model="banZhuang.shiJiJiaoJu" placeholder="请输入实际焦距"/>
           </div>
       </a>
