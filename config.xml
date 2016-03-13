@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.app02447781" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+<!--
+Please don't change id of app of android version
+  id = com.ionicframework.app02447781
+  for iso version
+  id = com.dntg.app
+-->
+<widget id="com.ionicframework.app02447781" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>射线检测</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
+    射线检测APP
+  </description>
+  <author email="zjndtsoftware@126.com" href="http://www.zjndt.com/">
     浙江无损检测工程技术有限公司研发
-    </author>
+  </author>
   <content src="index.html"/>
   <access origin="tel:*" launch-external="yes"/>
   <access origin="mailto:*" launch-external="yes"/>
