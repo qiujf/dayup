@@ -6,7 +6,7 @@ Please don't change id of app of android version
   for iso version
   id = com.dntg.app
 -->
-<widget id="com.ionicframework.app02447781" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
+<widget id="com.dntg.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>射线检测</name>
   <description>
